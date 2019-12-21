@@ -1,0 +1,45 @@
+{
+  "name": "hiberbee-json-schemas",
+  "description": "Collection of custom JSON schemas used for config validation in JetBrains family IDEs - served by NodeJS web server",
+  "private": true,
+  "keywords": [
+    "cli",
+    "node",
+    "xsd",
+    "json",
+    "jsonschema",
+    "converter"
+  ],
+  "files": [
+    "bin"
+  ],
+  "version": "1.0.0",
+  "license": "proprietary",
+  "maintainers": [
+    {
+      "name": "Vlad Volkov",
+      "email": "vvolkov@pipingrock.com"
+    }
+  ],
+  "dependencies": {
+    "json-schema-server": "^0.4"
+  },
+  "devDependencies": {
+    "@types/commander": "^2.12",
+    "@types/node": "^12.12",
+    "@types/xsd-schema-validator": "^0.5",
+    "chalk": "^3.0",
+    "jsonix": "^3.0",
+    "rimraf": "^3.0",
+    "ts-node": "^8.5",
+    "tslint": "^5.20",
+    "typescript": "^3.7"
+  },
+  "scripts": {
+    "xsd:json": "java -jar node_modules/jsonix/lib/jsonix-schema-compiler-full.jar -d build/json -generateJsonSchema xsd",
+    "build": "npm run clean && tsc -p .",
+    "clean": "rimraf build",
+    "refresh": "npm run clean && rm -rf node_modules package-lock.json && npm install",
+    "start": "node ./node_modules/.bin/json-schema-server json -p 5000"
+  }
+}
