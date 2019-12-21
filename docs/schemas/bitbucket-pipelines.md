@@ -1,3 +1,6 @@
+## Bitbucket Pipelines
+
+```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "bitbucket-pipelines.yml",
@@ -321,3 +324,5 @@
     }
   }
 }
+
+```

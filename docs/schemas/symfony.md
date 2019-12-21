@@ -1,6 +1,9 @@
+## Symfony 
+
+```json
 {
   "$schema": "http://json-schema-org/draft-07/schema#",
-  "$id": "symfony.yaml",
+  "$id": "symfony.json",
   "$ref": "https://raw.githubusercontent.com/Hiberbee/schema/master/json/symfony.json",
   "definitions": {
     "PropertyInfo": {
@@ -4907,3 +4910,5 @@
     }
   ]
 }
+
+```

@@ -33,7 +33,8 @@ bower_components
 
 # node-waf configuration
 .lock-wscript
-
+site
+.venv
 # Dependency directories
 node_modules/
 jspm_packages/

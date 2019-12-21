@@ -1,0 +1,10 @@
+site_name: Hiberbee JSON Schemas
+site_description: Collection of custom JSON schemas used for config validation in JetBrains family IDEs - served by NodeJS web server
+site_author: Vlad Volkov <vlad@hiberbee.com>
+remote_branch: gh-deploy
+theme: ivory
+repo_name: GitHub
+repo_url: https://github.com/hiberbee/schema.git
+markdown_extensions:
+  - toc:
+      permalink: True
