@@ -1,0 +1,21 @@
+plugins {
+  id("idea")
+  id("java-library")
+  id("org.jetbrains.gradle.plugin.idea-ext") version "0.7"
+}
+
+idea {
+  module {
+    downloadSources = false
+    inheritOutputDirs = true
+    setSourceDirs(files("src/main/json", "src/main/xsd") as Set<File>)
+
+    setExcludeDirs(
+      files(
+        ".gradle",
+        "build",
+        "var",
+        "public/bundles",
+        "vendor") as Set<File>)
+  }
+}
