@@ -1,0 +1,9 @@
+{
+  "name": "mypackage",
+  "dependencies": {
+    "jsonix-schema-compiler": "^2.3"
+  },
+  "scripts": {
+    "build" : "java -jar node_modules/jsonix-schema-compiler/lib/jsonix-schema-compiler-full.jar src/main/xsd/symfony-1.0.xsd"
+  }
+}

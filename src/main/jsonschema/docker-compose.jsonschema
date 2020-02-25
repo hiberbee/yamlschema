@@ -1,7 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "$ref": "https://raw.githubusercontent.com/Hiberbee/schema/master/json/docker-compose.jsonschema",
-  "id": "docker-compose",
+  "$ref": "https://raw.githubusercontent.com/Hiberbee/schema/master/src/main/jsonschema/docker-compose.jsonschema",
+  "$id": "docker-compose.yml",
+  "title": "Docker Compose",
   "type": "object",
   "required": [
     "version"

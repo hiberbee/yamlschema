@@ -7,7 +7,7 @@
   ],
   "$id": "skaffold.yaml",
   "$schema": "http://json-schema-org/draft-04/schema#",
-  "ref": "https://raw.githubusercontent.com/Hiberbee/schema/master/json/docker-compose.json",
+  "$ref": "https://raw.githubusercontent.com/Hiberbee/schema/master/src/main/jsonschema/skaffold.jsonschema",
   "definitions": {
     "Activation": {
       "properties": {
