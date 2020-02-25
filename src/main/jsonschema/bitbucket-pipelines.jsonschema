@@ -1,8 +1,9 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "bitbucket-pipelines.yml",
+  "$id": "bitbucket-pipelines.yml",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "https://raw.githubusercontent.com/Hiberbee/schema/master/json/bitbucket-pipelines.jsonschema",
+  "title": "Bitbucket Pipelines",
   "description": "JSON schema for Bitbucket Pipelines configuration",
-  "$id": "",
   "type": "object",
   "definitions": {
     "aws": {
