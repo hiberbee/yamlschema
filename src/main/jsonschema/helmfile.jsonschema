@@ -13,51 +13,6 @@
             },
             "url": {
               "type": "string"
-            }
-          },
-          "required": [
-            "name",
-            "url"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "name",
-            "url"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "name",
-            "url"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
             },
             "certFile": {
               "type": "string"
@@ -74,22 +29,7 @@
           },
           "required": [
             "name",
-            "url",
-            "certFile",
-            "keyFile",
-            "username",
-            "password"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "name"
+            "url"
           ]
         }
       ]
@@ -147,24 +87,7 @@
         "historyMax": {
           "type": "integer"
         }
-      },
-      "required": [
-        "tillerNamespace",
-        "tillerless",
-        "kubeContext",
-        "cleanupOnFail",
-        "args",
-        "verify",
-        "wait",
-        "timeout",
-        "recreatePods",
-        "force",
-        "tls",
-        "tlsCACert",
-        "tlsCert",
-        "tlsKey",
-        "historyMax"
-      ]
+      }
     },
     "releases": {
       "type": "array",
@@ -385,65 +308,8 @@
           },
           "required": [
             "name",
-            "namespace",
-            "labels",
             "chart",
-            "version",
-            "missingFileHandler",
-            "values",
-            "set",
-            "secrets",
-            "verify",
-            "wait",
-            "timeout",
-            "recreatePods",
-            "force",
-            "installed",
-            "atomic",
-            "cleanupOnFail",
-            "tillerNamespace",
-            "tillerless",
-            "tls",
-            "tlsCACert",
-            "tlsCert",
-            "tlsKey",
-            "kubeContext",
-            "historyMax"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "namespace": {
-              "type": "string"
-            },
-            "chart": {
-              "type": "string"
-            },
-            "values": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string"
-                }
-              ]
-            },
-            "wait": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "name",
-            "namespace",
-            "chart",
-            "values",
-            "wait"
+            "version"
           ]
         }
       ]
@@ -489,28 +355,6 @@
             "path",
             "selectors",
             "values"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "path": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "path"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "path": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "path"
           ]
         }
       ]
@@ -594,12 +438,6 @@
     "bases": {
       "type": "array",
       "items": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "string"
-        },
         {
           "type": "string"
         }
