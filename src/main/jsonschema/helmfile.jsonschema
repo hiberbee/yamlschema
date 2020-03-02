@@ -1,0 +1,617 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "repositories": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "url"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "url"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "url"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "certFile": {
+              "type": "string"
+            },
+            "keyFile": {
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "url",
+            "certFile",
+            "keyFile",
+            "username",
+            "password"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      ]
+    },
+    "helmDefaults": {
+      "type": "object",
+      "properties": {
+        "tillerNamespace": {
+          "type": "string"
+        },
+        "tillerless": {
+          "type": "boolean"
+        },
+        "kubeContext": {
+          "type": "string"
+        },
+        "cleanupOnFail": {
+          "type": "boolean"
+        },
+        "args": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "verify": {
+          "type": "boolean"
+        },
+        "wait": {
+          "type": "boolean"
+        },
+        "timeout": {
+          "type": "integer"
+        },
+        "recreatePods": {
+          "type": "boolean"
+        },
+        "force": {
+          "type": "boolean"
+        },
+        "tls": {
+          "type": "boolean"
+        },
+        "tlsCACert": {
+          "type": "string"
+        },
+        "tlsCert": {
+          "type": "string"
+        },
+        "tlsKey": {
+          "type": "string"
+        },
+        "historyMax": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "tillerNamespace",
+        "tillerless",
+        "kubeContext",
+        "cleanupOnFail",
+        "args",
+        "verify",
+        "wait",
+        "timeout",
+        "recreatePods",
+        "force",
+        "tls",
+        "tlsCACert",
+        "tlsCert",
+        "tlsKey",
+        "historyMax"
+      ]
+    },
+    "releases": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "namespace": {
+              "type": "string"
+            },
+            "labels": {
+              "type": "object",
+              "properties": {
+                "foo": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "foo"
+              ]
+            },
+            "chart": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "missingFileHandler": {
+              "type": "string"
+            },
+            "values": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "address"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "image": {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "tag"
+                      ]
+                    },
+                    "db": {
+                      "type": "object",
+                      "properties": {
+                        "username": {
+                          "type": "string"
+                        },
+                        "password": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "username",
+                        "password"
+                      ]
+                    },
+                    "proxy": {
+                      "type": "object",
+                      "properties": {
+                        "domain": {
+                          "type": "string"
+                        },
+                        "scheme": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "domain",
+                        "scheme"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "image",
+                    "db",
+                    "proxy"
+                  ]
+                }
+              ]
+            },
+            "set": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "file": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "file"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "values": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "values"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value"
+                  ]
+                }
+              ]
+            },
+            "secrets": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "verify": {
+              "type": "boolean"
+            },
+            "wait": {
+              "type": "boolean"
+            },
+            "timeout": {
+              "type": "integer"
+            },
+            "recreatePods": {
+              "type": "boolean"
+            },
+            "force": {
+              "type": "boolean"
+            },
+            "installed": {
+              "type": "boolean"
+            },
+            "atomic": {
+              "type": "boolean"
+            },
+            "cleanupOnFail": {
+              "type": "boolean"
+            },
+            "tillerNamespace": {
+              "type": "string"
+            },
+            "tillerless": {
+              "type": "boolean"
+            },
+            "tls": {
+              "type": "boolean"
+            },
+            "tlsCACert": {
+              "type": "string"
+            },
+            "tlsCert": {
+              "type": "string"
+            },
+            "tlsKey": {
+              "type": "string"
+            },
+            "kubeContext": {
+              "type": "string"
+            },
+            "historyMax": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "name",
+            "namespace",
+            "labels",
+            "chart",
+            "version",
+            "missingFileHandler",
+            "values",
+            "set",
+            "secrets",
+            "verify",
+            "wait",
+            "timeout",
+            "recreatePods",
+            "force",
+            "installed",
+            "atomic",
+            "cleanupOnFail",
+            "tillerNamespace",
+            "tillerless",
+            "tls",
+            "tlsCACert",
+            "tlsCert",
+            "tlsKey",
+            "kubeContext",
+            "historyMax"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "namespace": {
+              "type": "string"
+            },
+            "chart": {
+              "type": "string"
+            },
+            "values": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "wait": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "name",
+            "namespace",
+            "chart",
+            "values",
+            "wait"
+          ]
+        }
+      ]
+    },
+    "helmfiles": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "selectors": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "values": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "key1": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key1"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "path",
+            "selectors",
+            "values"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ]
+        }
+      ]
+    },
+    "environments": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "object",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "myChartVer": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "myChartVer"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "values"
+          ]
+        },
+        "production": {
+          "type": "object",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "myChartVer": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "myChartVer"
+                  ]
+                }
+              ]
+            },
+            "secrets": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "missingFileHandler": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "values",
+            "secrets",
+            "missingFileHandler"
+          ]
+        }
+      },
+      "required": [
+        "default",
+        "production"
+      ]
+    },
+    "bases": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "apiVersions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    }
+  }
+}
