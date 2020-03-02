@@ -360,35 +360,8 @@
     },
     "environments": {
       "type": "object",
-      "properties": {
-        "default": {
-          "type": "object",
-          "properties": {
-            "values": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "myChartVer": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "myChartVer"
-                  ]
-                }
-              ]
-            }
-          },
-          "required": [
-            "values"
-          ]
-        },
-        "production": {
+      "patternProperties": {
+        "[a-zA-Z0-9]": {
           "type": "object",
           "properties": {
             "values": {
@@ -421,18 +394,9 @@
             "missingFileHandler": {
               "type": "string"
             }
-          },
-          "required": [
-            "values",
-            "secrets",
-            "missingFileHandler"
-          ]
+          }
         }
-      },
-      "required": [
-        "default",
-        "production"
-      ]
+      }
     },
     "bases": {
       "type": "array",
