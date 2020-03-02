@@ -308,8 +308,7 @@
           },
           "required": [
             "name",
-            "chart",
-            "version"
+            "chart"
           ]
         }
       ]
