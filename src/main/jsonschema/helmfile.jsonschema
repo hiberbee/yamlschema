@@ -103,14 +103,11 @@
             },
             "labels": {
               "type": "object",
-              "properties": {
-                "foo": {
+              "patternProperties": {
+                "[a-zA-Z0-9.]": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "foo"
-              ]
+              }
             },
             "chart": {
               "type": "string"
@@ -366,20 +363,12 @@
           "properties": {
             "values": {
               "type": "array",
-              "items": [
+              "oneOf": [
                 {
                   "type": "string"
                 },
                 {
-                  "type": "object",
-                  "properties": {
-                    "myChartVer": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "myChartVer"
-                  ]
+                  "type": "object"
                 }
               ]
             },
