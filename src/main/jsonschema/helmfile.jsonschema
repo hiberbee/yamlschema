@@ -363,14 +363,16 @@
           "properties": {
             "values": {
               "type": "array",
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "object"
-                }
-              ]
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
             },
             "secrets": {
               "type": "array",
