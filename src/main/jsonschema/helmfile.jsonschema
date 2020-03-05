@@ -364,7 +364,7 @@
             "values": {
               "type": "array",
               "items": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "type": "string"
                   },
