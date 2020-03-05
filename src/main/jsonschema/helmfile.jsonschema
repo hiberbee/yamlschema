@@ -104,8 +104,18 @@
             "labels": {
               "type": "object",
               "patternProperties": {
-                "[a-zA-Z0-9.]": {
-                  "type": "string"
+                "[a-zA-Z0-9]": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
                 }
               }
             },
@@ -120,70 +130,29 @@
             },
             "values": {
               "type": "array",
-              "items": [
+              "anyOf": [
                 {
                   "type": "string"
                 },
                 {
                   "type": "object",
-                  "properties": {
-                    "address": {
-                      "type": "string"
+                  "patternProperties": {
+                    "[a-zA-Z09]": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
                     }
                   },
                   "required": [
                     "address"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "image": {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "tag"
-                      ]
-                    },
-                    "db": {
-                      "type": "object",
-                      "properties": {
-                        "username": {
-                          "type": "string"
-                        },
-                        "password": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "username",
-                        "password"
-                      ]
-                    },
-                    "proxy": {
-                      "type": "object",
-                      "properties": {
-                        "domain": {
-                          "type": "string"
-                        },
-                        "scheme": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "domain",
-                        "scheme"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "image",
-                    "db",
-                    "proxy"
                   ]
                 }
               ]
@@ -329,7 +298,7 @@
             },
             "values": {
               "type": "array",
-              "items": [
+              "anyOf": [
                 {
                   "type": "string"
                 },
@@ -349,7 +318,6 @@
           },
           "required": [
             "path",
-            "selectors",
             "values"
           ]
         }
