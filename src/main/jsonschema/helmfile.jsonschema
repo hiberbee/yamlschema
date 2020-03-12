@@ -304,21 +304,17 @@
                 },
                 {
                   "type": "object",
-                  "properties": {
-                    "key1": {
+                  "patternProperties": {
+                    "[a-zA-Z0-9]": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "key1"
-                  ]
+                  }
                 }
               ]
             }
           },
           "required": [
-            "path",
-            "values"
+            "path"
           ]
         }
       ]
