@@ -1,9 +1,9 @@
 {
-  "name": "mypackage",
+  "name": "@hiberbee/schema",
   "dependencies": {
-    "jsonix-schema-compiler": "^2.3"
+    "json-schema-generator": "^2.0"
   },
   "scripts": {
-    "build" : "java -jar node_modules/jsonix-schema-compiler/lib/jsonix-schema-compiler-full.jar src/main/xsd/symfony-1.0.xsd"
+    "generate": "yarn json-schema-generator --file src/main/jsonschema/input.json --pretty --schemadir src/main/jsonschema/output.json"
   }
 }

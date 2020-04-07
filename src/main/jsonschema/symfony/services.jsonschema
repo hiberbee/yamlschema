@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "_instanceof": {
+    },
+    "_default": {
+    }
+  },
+  "patternProperties": {
+    "[a-zA-Z()_-]": {
+    }
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://schema.hiberbee.com/roadrunner/config.jsonschema",
+  "$ref": "config.jsonschema",
+  "type": "object",
+  "properties": {
+    "env": {
+      "$ref": "#/definitions/env"
+    },
+    "rpc": {
+      "$ref": "#/definitions/rpc"
+    },
+    "metrics": {
+      "$ref": "#/definitions/metrics"
+    },
+    "http": {
+      "$ref": "#/definitions/http"
+    },
+    "headers": {
+      "$ref": "#/definitions/headers"
+    },
+    "limit": {
+      "$ref": "#/definitions/limit"
+    },
+    "static": {
+      "$ref": "#/definitions/static"
+    },
+    "health": {
+      "$ref": "#/definitions/health"
+    },
+    "reload": {
+      "$ref": "#/definitions/reload"
+    }
+  },
+  "definitions": {
+    "env": {
+      "$id": "#/definitions/env",
+      "properties": {
+        "key": {
+          "$id": "#/definitions/env/properties/key"
+        }
+      }
+    },
+    "rpc": {
+      "$id": "#/definitions/rpc",
+      "properties": {
+        "enable": {
+          "$ref": "#/definitions/rpc/properties/enable"
+        },
+        "listen": {
+          "$id": "#/definitions/rpc/properties/listen"
+        }
+      }
+    },
+    "metrics": {
+      "$id": "#/definitions/metrics",
+      "properties": {
+        "address": {
+          "$id": "#/definitions/metrics/properties/address"
+        },
+        "collect": {
+          "$id": "#/definitions/metrics/properties/collect",
+          "properties": {
+            "app_metric": {
+              "$id": "#/definitions/metrics/properties/collect/properties/app_metric",
+              "properties": {
+                "type": {
+                  "$id": "#/definitions/metrics/properties/collect/properties/app_metric/properties/type"
+                },
+                "help": {
+                  "$id": "#/definitions/metrics/properties/collect/properties/app_metric/properties/help"
+                },
+                "labels": {
+                  "$id": "#/definitions/metrics/properties/collect/properties/app_metric/properties/labels",
+                  "items": {
+                    "$id": "#/definitions/metrics/properties/collect/properties/app_metric/properties/labels/items"
+                  }
+                },
+                "buckets": {
+                  "$id": "#/definitions/metrics/properties/collect/properties/app_metric/properties/buckets",
+                  "items": {
+                    "$id": "#/definitions/metrics/properties/collect/properties/app_metric/properties/buckets/items"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "http": {
+      "$id": "#/definitions/http",
+      "required": [
+      ],
+      "properties": {
+        "address": {
+          "$id": "#/definitions/http/properties/address",
+          "type": "string"
+        },
+        "ssl": {
+          "$id": "#/definitions/http/properties/ssl",
+          "properties": {
+            "port": {
+              "type": "integer",
+              "$id": "#/definitions/http/properties/ssl/properties/port"
+            },
+            "redirect": {
+              "$id": "#/definitions/http/properties/ssl/properties/redirect"
+            },
+            "cert": {
+              "$id": "#/definitions/http/properties/ssl/properties/cert",
+              "type": "string"
+            },
+            "key": {
+              "$id": "#/definitions/http/properties/ssl/properties/key",
+              "type": "string"
+            }
+          }
+        },
+        "fcgi": {
+          "$id": "#/definitions/http/properties/fcgi",
+          "properties": {
+            "address": {
+              "$id": "#/definitions/http/properties/fcgi/properties/address"
+            }
+          }
+        },
+        "http2": {
+          "$id": "#/definitions/http/properties/http2",
+          "properties": {
+            "enabled": {
+              "$id": "#/definitions/http/properties/http2/properties/enabled"
+            },
+            "h2c": {
+              "$id": "#/definitions/http/properties/http2/properties/h2c"
+            },
+            "maxConcurrentStreams": {
+              "$id": "#/definitions/http/properties/http2/properties/maxConcurrentStreams"
+            }
+          }
+        },
+        "maxRequestSize": {
+          "$id": "#/definitions/http/properties/maxRequestSize"
+        },
+        "uploads": {
+          "$id": "#/definitions/http/properties/uploads",
+          "properties": {
+            "forbid": {
+              "$id": "#/definitions/http/properties/uploads/properties/forbid",
+              "items": {
+                "$id": "#/definitions/http/properties/uploads/properties/forbid/items"
+              }
+            }
+          }
+        },
+        "trustedSubnets": {
+          "$id": "#/definitions/http/properties/trustedSubnets",
+          "items": {
+            "$id": "#/definitions/http/properties/trustedSubnets/items"
+          }
+        },
+        "workers": {
+          "$id": "#/definitions/http/properties/workers",
+          "properties": {
+            "command": {
+              "$id": "#/definitions/http/properties/workers/properties/command",
+              "type": "string"
+            },
+            "relay": {
+              "$id": "#/definitions/http/properties/workers/properties/relay",
+              "type": "string",
+              "enum": [
+                "pipes",
+                "tcp://localhost:9000",
+                "unix://socket.unix"
+              ]
+            },
+            "pool": {
+              "$id": "#/definitions/http/properties/workers/properties/pool",
+              "properties": {
+                "numWorkers": {
+                  "type": "integer",
+                  "$id": "#/definitions/http/properties/workers/properties/pool/properties/numWorkers"
+                },
+                "maxJobs": {
+                  "$id": "#/definitions/http/properties/workers/properties/pool/properties/maxJobs"
+                },
+                "allocateTimeout": {
+                  "$id": "#/definitions/http/properties/workers/properties/pool/properties/allocateTimeout"
+                },
+                "destroyTimeout": {
+                  "$id": "#/definitions/http/properties/workers/properties/pool/properties/destroyTimeout"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "headers": {
+      "$id": "#/definitions/headers",
+      "properties": {
+        "cors": {
+          "$id": "#/definitions/headers/properties/cors",
+          "properties": {
+            "allowedOrigin": {
+              "$id": "#/definitions/headers/properties/cors/properties/allowedOrigin"
+            },
+            "allowedHeaders": {
+              "$id": "#/definitions/headers/properties/cors/properties/allowedHeaders"
+            },
+            "allowedMethods": {
+              "$id": "#/definitions/headers/properties/cors/properties/allowedMethods"
+            },
+            "allowCredentials": {
+              "$id": "#/definitions/headers/properties/cors/properties/allowCredentials"
+            },
+            "exposedHeaders": {
+              "$id": "#/definitions/headers/properties/cors/properties/exposedHeaders"
+            },
+            "maxAge": {
+              "$id": "#/definitions/headers/properties/cors/properties/maxAge"
+            }
+          }
+        },
+        "request": {
+          "$id": "#/definitions/headers/properties/request",
+          "properties": {
+            "Example-Request-Header": {
+              "$id": "#/definitions/headers/properties/request/properties/Example-Request-Header"
+            }
+          }
+        },
+        "response": {
+          "$id": "#/definitions/headers/properties/response",
+          "properties": {
+            "X-Powered-By": {
+              "$id": "#/definitions/headers/properties/response/properties/X-Powered-By"
+            }
+          }
+        }
+      }
+    },
+    "limit": {
+      "$id": "#/definitions/limit",
+      "properties": {
+        "interval": {
+          "$id": "#/definitions/limit/properties/interval"
+        },
+        "services": {
+          "$id": "#/definitions/limit/properties/services",
+          "properties": {
+            "http": {
+              "$id": "#/definitions/limit/properties/services/properties/http",
+              "properties": {
+                "maxMemory": {
+                  "$id": "#/definitions/limit/properties/services/properties/http/properties/maxMemory"
+                },
+                "TTL": {
+                  "$id": "#/definitions/limit/properties/services/properties/http/properties/TTL"
+                },
+                "idleTTL": {
+                  "$id": "#/definitions/limit/properties/services/properties/http/properties/idleTTL"
+                },
+                "execTTL": {
+                  "$id": "#/definitions/limit/properties/services/properties/http/properties/execTTL"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "static": {
+      "$id": "#/definitions/static",
+      "properties": {
+        "dir": {
+          "type": "string",
+          "$id": "#/definitions/static/properties/dir"
+        },
+        "forbid": {
+          "$id": "#/definitions/static/properties/forbid",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/static/properties/forbid/items"
+          }
+        }
+      }
+    },
+    "health": {
+      "$id": "#/definitions/health",
+      "required": [
+        "address"
+      ],
+      "properties": {
+        "address": {
+          "type": "string",
+          "$id": "#/definitions/health/properties/address"
+        }
+      }
+    },
+    "reload": {
+      "$id": "#/definitions/reload",
+      "properties": {
+        "interval": {
+          "$id": "#/definitions/reload/properties/interval"
+        },
+        "patterns": {
+          "$id": "#/definitions/reload/properties/patterns",
+          "items": {
+            "$id": "#/definitions/reload/properties/patterns/items"
+          }
+        },
+        "services": {
+          "$id": "#/definitions/reload/properties/services",
+          "properties": {
+            "http": {
+              "$id": "#/definitions/reload/properties/services/properties/http",
+              "properties": {
+                "dirs": {
+                  "$id": "#/definitions/reload/properties/services/properties/http/properties/dirs",
+                  "items": {
+                    "$id": "#/definitions/reload/properties/services/properties/http/properties/dirs/items"
+                  }
+                },
+                "recursive": {
+                  "$id": "#/definitions/reload/properties/services/properties/http/properties/recursive"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

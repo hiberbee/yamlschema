@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://schema.hiberbee.com/symfony/flext/manifest.jsonschema",
+  "$ref": "manifest.jsonschema",
+  "type": "object",
+  "properties": {
+    "bundles": {
+      "$id": "#/properties/bundles",
+      "type": "object",
+      "properties": {
+        "Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle": {
+          "$id": "#/properties/bundles/properties/Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle/items",
+            "type": "string"
+          }
+        },
+        "Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle": {
+          "$id": "#/properties/bundles/properties/Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle/items",
+            "type": "string"
+          }
+        },
+        "Symfony\\Bundle\\TwigBundle\\TwigBundle": {
+          "$id": "#/properties/bundles/properties/Symfony\\Bundle\\TwigBundle\\TwigBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/Symfony\\Bundle\\TwigBundle\\TwigBundle/items",
+            "type": "string"
+          }
+        },
+        "Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle": {
+          "$id": "#/properties/bundles/properties/Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle/items",
+            "type": "string"
+          }
+        },
+        "Doctrine\\Bundle\\DoctrineCacheBundle\\DoctrineCacheBundle": {
+          "$id": "#/properties/bundles/properties/Doctrine\\Bundle\\DoctrineCacheBundle\\DoctrineCacheBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/Doctrine\\Bundle\\DoctrineCacheBundle\\DoctrineCacheBundle/items",
+            "type": "string"
+          }
+        },
+        "Doctrine\\Bundle\\DoctrineMigrationsBundle": {
+          "$id": "#/properties/bundles/properties/Doctrine\\Bundle\\DoctrineMigrationsBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/Doctrine\\Bundle\\DoctrineMigrationsBundle/items",
+            "type": "string"
+          }
+        },
+        "Liip\\LiipMonitorBundle\\LiipMonitorBundle": {
+          "$id": "#/properties/bundles/properties/Liip\\LiipMonitorBundle\\LiipMonitorBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/Liip\\LiipMonitorBundle\\LiipMonitorBundle/items",
+            "type": "string"
+          }
+        },
+        "PipingRock\\Bundle\\RoadRunner\\RoadRunnerBundle": {
+          "$id": "#/properties/bundles/properties/PipingRock\\Bundle\\RoadRunner\\RoadRunnerBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/PipingRock\\Bundle\\RoadRunner\\RoadRunnerBundle/items",
+            "type": "string"
+          }
+        },
+        "PipingRock\\Bundle\\MicroServiceBundle\\MicroServiceBundle": {
+          "$id": "#/properties/bundles/properties/PipingRock\\Bundle\\MicroServiceBundle\\MicroServiceBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/PipingRock\\Bundle\\MicroServiceBundle\\MicroServiceBundle/items",
+            "type": "string"
+          }
+        },
+        "Monolog\\Bundle\\MonologBundle\\MonologBundle": {
+          "$id": "#/properties/bundles/properties/Monolog\\Bundle\\MonologBundle\\MonologBundle",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/bundles/properties/Monolog\\Bundle\\MonologBundle\\MonologBundle/items",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "copy-from-recipe": {
+      "$id": "#/properties/copy-from-recipe",
+      "type": "object",
+      "properties": {
+        "bin/": {
+          "$id": "#/properties/copy-from-recipe/properties/bin/",
+          "type": "string"
+        },
+        "etc/symfony/": {
+          "$id": "#/properties/copy-from-recipe/properties/etc/symfony/",
+          "type": "string"
+        },
+        "include/": {
+          "$id": "#/properties/copy-from-recipe/properties/include/",
+          "type": "string"
+        },
+        "var/www/": {
+          "$id": "#/properties/copy-from-recipe/properties/var/www/",
+          "type": "string"
+        }
+      }
+    },
+    "composer-scripts": {
+      "$id": "#/properties/composer-scripts",
+      "type": "object",
+      "properties": {
+        "start": {
+          "$id": "#/properties/composer-scripts/properties/start",
+          "type": "string"
+        }
+      }
+    },
+    "gitignore": {
+      "$id": "#/properties/gitignore",
+      "type": "array",
+      "items": {
+        "$id": "#/properties/gitignore/items",
+        "type": "string"
+      }
+    }
+  }
+}

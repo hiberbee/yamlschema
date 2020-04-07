@@ -1,0 +1,1014 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://schema.pr-ecomm.net/ep-service-bundle/symfony",
+  "$ref": "api-platform.jsonschema",
+  "type": "object",
+  "title": "API Platform",
+  "description": "The root schema comprises the entire JSON document.",
+  "definitions": {
+    "mime_types": {
+      "$id": "#/definitions/mime_types",
+      "type": "array",
+      "title": "MimeTypes | API Platform",
+      "items": {
+        "type": "string",
+        "enum": [
+          "application/json",
+          "application/ld+json",
+          "text/html",
+          "application/graphql",
+          "application/xml"
+        ]
+      }
+    },
+    "formats": {
+      "$id": "#/definitions/formats",
+      "type": "object",
+      "title": "Formats | API Platform",
+      "properties": {
+        "mime_types": {
+          "$ref": "#/definitions/mime_types"
+        }
+      }
+    }
+  },
+  "properties": {
+    "api_platform": {
+      "$id": "#/properties/api_platform",
+      "type": "object",
+      "title": "API Platform",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "properties": {
+        "title": {
+          "$id": "#/properties/api_platform/properties/title",
+          "type": "string",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "description": {
+          "$id": "#/properties/api_platform/properties/description",
+          "type": "string",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "version": {
+          "$id": "#/properties/api_platform/properties/version",
+          "type": "string",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "show_webby": {
+          "$id": "#/properties/api_platform/properties/show_webby",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "name_converter": {
+          "$id": "#/properties/api_platform/properties/name_converter",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "path_segment_name_generator": {
+          "$id": "#/properties/api_platform/properties/path_segment_name_generator",
+          "type": "string",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "allow_plain_identifiers": {
+          "$id": "#/properties/api_platform/properties/allow_plain_identifiers",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "validator": {
+          "$id": "#/properties/api_platform/properties/validator",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "serialize_payload_fields": {
+              "$id": "#/properties/api_platform/properties/validator/properties/serialize_payload_fields",
+              "type": "array",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": []
+            }
+          }
+        },
+        "eager_loading": {
+          "$id": "#/properties/api_platform/properties/eager_loading",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/api_platform/properties/eager_loading/properties/enabled",
+              "type": "boolean",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                true
+              ]
+            },
+            "fetch_partial": {
+              "$id": "#/properties/api_platform/properties/eager_loading/properties/fetch_partial",
+              "type": "boolean",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "max_joins": {
+              "$id": "#/properties/api_platform/properties/eager_loading/properties/max_joins",
+              "type": "integer",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                30
+              ]
+            },
+            "force_eager": {
+              "$id": "#/properties/api_platform/properties/eager_loading/properties/force_eager",
+              "type": "boolean",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                true
+              ]
+            }
+          }
+        },
+        "enable_fos_user": {
+          "$id": "#/properties/api_platform/properties/enable_fos_user",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "enable_nelmio_api_doc": {
+          "$id": "#/properties/api_platform/properties/enable_nelmio_api_doc",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "enable_swagger": {
+          "$id": "#/properties/api_platform/properties/enable_swagger",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "enable_swagger_ui": {
+          "$id": "#/properties/api_platform/properties/enable_swagger_ui",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "enable_re_doc": {
+          "$id": "#/properties/api_platform/properties/enable_re_doc",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "enable_entrypoint": {
+          "$id": "#/properties/api_platform/properties/enable_entrypoint",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "enable_docs": {
+          "$id": "#/properties/api_platform/properties/enable_docs",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "enable_profiler": {
+          "$id": "#/properties/api_platform/properties/enable_profiler",
+          "type": "boolean",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance."
+        },
+        "collection": {
+          "$id": "#/properties/api_platform/properties/collection",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "exists_parameter_name": {
+              "$id": "#/properties/api_platform/properties/collection/properties/exists_parameter_name",
+              "type": "string",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "exists"
+              ]
+            },
+            "order": {
+              "$id": "#/properties/api_platform/properties/collection/properties/order",
+              "type": "string",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "ASC"
+              ]
+            },
+            "order_parameter_name": {
+              "$id": "#/properties/api_platform/properties/collection/properties/order_parameter_name",
+              "type": "string",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "order"
+              ]
+            },
+            "pagination": {
+              "$id": "#/properties/api_platform/properties/collection/properties/pagination",
+              "type": "object",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                {
+                  "enabled_parameter_name": "pagination",
+                  "items_per_page": 30.0,
+                  "items_per_page_parameter_name": "itemsPerPage",
+                  "page_parameter_name": "page",
+                  "maximum_items_per_page": null,
+                  "partial": false,
+                  "client_items_per_page": false,
+                  "client_enabled": false,
+                  "client_partial": false,
+                  "enabled": true,
+                  "partial_parameter_name": "partial"
+                }
+              ],
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/enabled",
+                  "type": "boolean",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false,
+                  "examples": [
+                    true
+                  ]
+                },
+                "partial": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/partial",
+                  "type": "boolean",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false,
+                  "examples": [
+                    false
+                  ]
+                },
+                "client_enabled": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/client_enabled",
+                  "type": "boolean",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false,
+                  "examples": [
+                    false
+                  ]
+                },
+                "client_items_per_page": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/client_items_per_page",
+                  "type": "boolean",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false,
+                  "examples": [
+                    false
+                  ]
+                },
+                "client_partial": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/client_partial",
+                  "type": "boolean",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false,
+                  "examples": [
+                    false
+                  ]
+                },
+                "items_per_page": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/items_per_page",
+                  "type": "integer",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": 0,
+                  "examples": [
+                    30
+                  ]
+                },
+                "maximum_items_per_page": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/maximum_items_per_page",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": null,
+                  "examples": [
+                    null
+                  ]
+                },
+                "page_parameter_name": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/page_parameter_name",
+                  "type": "string",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "page"
+                  ]
+                },
+                "enabled_parameter_name": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/enabled_parameter_name",
+                  "type": "string",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "pagination"
+                  ]
+                },
+                "items_per_page_parameter_name": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/items_per_page_parameter_name",
+                  "type": "string",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "itemsPerPage"
+                  ]
+                },
+                "partial_parameter_name": {
+                  "$id": "#/properties/api_platform/properties/collection/properties/pagination/properties/partial_parameter_name",
+                  "type": "string",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "partial"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "mapping": {
+          "$id": "#/properties/api_platform/properties/mapping",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "paths": {
+              "$id": "#/properties/api_platform/properties/mapping/properties/paths",
+              "type": "array",
+              "description": "An explanation about the purpose of this instance.",
+              "default": []
+            }
+          }
+        },
+        "resource_class_directories": {
+          "$id": "#/properties/api_platform/properties/resource_class_directories",
+          "type": "array",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "items": {
+            "$id": "#/properties/api_platform/properties/resource_class_directories/items",
+            "type": "string",
+            "title": "API Platform",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "%kernel.project_dir%/src/Entity"
+            ]
+          }
+        },
+        "doctrine": {
+          "$id": "#/properties/api_platform/properties/doctrine",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/api_platform/properties/doctrine/properties/enabled",
+              "type": "boolean",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                true
+              ]
+            }
+          }
+        },
+        "doctrine_mongodb_odm": {
+          "$id": "#/properties/api_platform/properties/doctrine_mongodb_odm",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/api_platform/properties/doctrine_mongodb_odm/properties/enabled",
+              "type": "boolean",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            }
+          }
+        },
+        "oauth": {
+          "$id": "#/properties/api_platform/properties/oauth",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/api_platform/properties/oauth/properties/enabled",
+              "type": "boolean",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "clientId": {
+              "$id": "#/properties/api_platform/properties/oauth/properties/clientId",
+              "type": "string",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            },
+            "clientSecret": {
+              "$id": "#/properties/api_platform/properties/oauth/properties/clientSecret",
+              "type": "string",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            },
+            "type": {
+              "$id": "#/properties/api_platform/properties/oauth/properties/type",
+              "type": "string",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "oauth2"
+              ]
+            },
+            "flow": {
+              "$id": "#/properties/api_platform/properties/oauth/properties/flow",
+              "type": "string",
+              "$ref": "api-platform.jsonschema",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "application"
+              ]
+            },
+            "tokenUrl": {
+              "$id": "#/properties/api_platform/properties/oauth/properties/tokenUrl",
+              "type": "string",
+              "$ref": "api-platform.jsonschema",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "/oauth/v2/token"
+              ]
+            },
+            "authorizationUrl": {
+              "$id": "#/properties/api_platform/properties/oauth/properties/authorizationUrl",
+              "type": "string",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "/oauth/v2/auth"
+              ]
+            },
+            "scopes": {
+              "$id": "#/properties/api_platform/properties/oauth/properties/scopes",
+              "type": "array",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": []
+            }
+          }
+        },
+        "graphql": {
+          "$id": "#/properties/api_platform/properties/graphql",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/api_platform/properties/graphql/properties/enabled",
+              "type": "boolean",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "default_ide": {
+              "$id": "#/properties/api_platform/properties/graphql/properties/default_ide",
+              "type": "string",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "graphiql"
+              ]
+            },
+            "graphiql": {
+              "$id": "#/properties/api_platform/properties/graphql/properties/graphiql",
+              "type": "object",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                {
+                  "enabled": false
+                }
+              ],
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/api_platform/properties/graphql/properties/graphiql/properties/enabled",
+                  "type": "boolean",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false,
+                  "examples": [
+                    false
+                  ]
+                }
+              }
+            },
+            "graphql_playground": {
+              "$id": "#/properties/api_platform/properties/graphql/properties/graphql_playground",
+              "type": "object",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                {
+                  "enabled": false
+                }
+              ],
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/api_platform/properties/graphql/properties/graphql_playground/properties/enabled",
+                  "type": "boolean",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false,
+                  "examples": [
+                    false
+                  ]
+                }
+              }
+            },
+            "nesting_separator": {
+              "$id": "#/properties/api_platform/properties/graphql/properties/nesting_separator",
+              "type": "string",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "_"
+              ]
+            },
+            "collection": {
+              "$id": "#/properties/api_platform/properties/graphql/properties/collection",
+              "type": "object",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                {
+                  "pagination": {
+                    "enabled": true
+                  }
+                }
+              ],
+              "properties": {
+                "pagination": {
+                  "$id": "#/properties/api_platform/properties/graphql/properties/collection/properties/pagination",
+                  "type": "object",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": {},
+                  "examples": [
+                    {
+                      "enabled": true
+                    }
+                  ],
+                  "properties": {
+                    "enabled": {
+                      "$id": "#/properties/api_platform/properties/graphql/properties/collection/properties/pagination/properties/enabled",
+                      "type": "boolean",
+                      "title": "API Platform",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": false,
+                      "examples": [
+                        true
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "swagger": {
+          "$id": "#/properties/api_platform/properties/swagger",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "versions": {
+              "$id": "#/properties/api_platform/properties/swagger/properties/versions",
+              "type": "array",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "items": {
+                "$id": "#/properties/api_platform/properties/swagger/properties/versions/items",
+                "type": "integer",
+                "title": "API Platform",
+                "description": "An explanation about the purpose of this instance.",
+                "default": 0,
+                "examples": [
+                  2,
+                  3
+                ]
+              }
+            },
+            "api_keys": {
+              "$id": "#/properties/api_platform/properties/swagger/properties/api_keys",
+              "type": "array",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": []
+            }
+          }
+        },
+        "http_cache": {
+          "$id": "#/properties/api_platform/properties/http_cache",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "etag": {
+              "$id": "#/properties/api_platform/properties/http_cache/properties/etag",
+              "type": "boolean",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                true
+              ]
+            },
+            "max_age": {
+              "$id": "#/properties/api_platform/properties/http_cache/properties/max_age",
+              "type": "integer",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                3600
+              ]
+            },
+            "shared_max_age": {
+              "$id": "#/properties/api_platform/properties/http_cache/properties/shared_max_age",
+              "type": "integer",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                3600
+              ]
+            },
+            "vary": {
+              "$id": "#/properties/api_platform/properties/http_cache/properties/vary",
+              "type": "array",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "items": {
+                "$id": "#/properties/api_platform/properties/http_cache/properties/vary/items",
+                "type": "string",
+                "title": "API Platform",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "Accept"
+                ]
+              }
+            },
+            "public": {
+              "$id": "#/properties/api_platform/properties/http_cache/properties/public",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": null,
+              "examples": [
+                null
+              ]
+            },
+            "invalidation": {
+              "$id": "#/properties/api_platform/properties/http_cache/properties/invalidation",
+              "type": "object",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                {
+                  "enabled": false,
+                  "varnish_urls": [],
+                  "request_options": []
+                }
+              ],
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/api_platform/properties/http_cache/properties/invalidation/properties/enabled",
+                  "type": "boolean",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false,
+                  "examples": [
+                    false
+                  ]
+                },
+                "varnish_urls": {
+                  "$id": "#/properties/api_platform/properties/http_cache/properties/invalidation/properties/varnish_urls",
+                  "type": "array",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": []
+                },
+                "request_options": {
+                  "$id": "#/properties/api_platform/properties/http_cache/properties/invalidation/properties/request_options",
+                  "type": "array",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": []
+                }
+              }
+            }
+          }
+        },
+        "mercure": {
+          "$id": "#/properties/api_platform/properties/mercure",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/api_platform/properties/mercure/properties/enabled",
+              "type": "boolean",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "hub_url": {
+              "$id": "#/properties/api_platform/properties/mercure/properties/hub_url",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": null,
+              "examples": [
+                null
+              ]
+            }
+          }
+        },
+        "messenger": {
+          "$id": "#/properties/api_platform/properties/messenger",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/api_platform/properties/messenger/properties/enabled",
+              "type": "boolean",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            }
+          }
+        },
+        "elasticsearch": {
+          "$id": "#/properties/api_platform/properties/elasticsearch",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/api_platform/properties/elasticsearch/properties/enabled",
+              "type": "boolean",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "hosts": {
+              "$id": "#/properties/api_platform/properties/elasticsearch/properties/hosts",
+              "type": "array",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": []
+            },
+            "mapping": {
+              "$id": "#/properties/api_platform/properties/elasticsearch/properties/mapping",
+              "type": "array",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": []
+            }
+          }
+        },
+        "exception_to_status": {
+          "$id": "#/properties/api_platform/properties/exception_to_status",
+          "type": "object",
+          "title": "API Platform",
+          "description": "An explanation about the purpose of this instance.",
+          "properties": {
+            "Symfony\\Component\\Serializer\\Exception\\ExceptionInterface": {
+              "$id": "#/properties/api_platform/properties/exception_to_status/properties/Symfony\\Component\\Serializer\\Exception\\ExceptionInterface",
+              "type": "integer",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                400
+              ]
+            },
+            "ApiPlatform\\Core\\Exception\\InvalidArgumentException": {
+              "$id": "#/properties/api_platform/properties/exception_to_status/properties/ApiPlatform\\Core\\Exception\\InvalidArgumentException",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": null,
+              "examples": [
+                null
+              ]
+            },
+            "ApiPlatform\\Core\\Exception\\FilterValidationException": {
+              "$id": "#/properties/api_platform/properties/exception_to_status/properties/ApiPlatform\\Core\\Exception\\FilterValidationException",
+              "type": "integer",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                400
+              ]
+            },
+            "Doctrine\\ORM\\OptimisticLockException": {
+              "$id": "#/properties/api_platform/properties/exception_to_status/properties/Doctrine\\ORM\\OptimisticLockException",
+              "type": "integer",
+              "title": "API Platform",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                409
+              ]
+            }
+          }
+        },
+        "formats": {
+          "$id": "#/properties/api_platform/properties/formats",
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "enum": [
+              "html",
+              "json",
+              "jsonld",
+              "graphql"
+            ]
+          },
+          "allOf": [
+            {
+              "$ref": "#/definitions/formats"
+            }
+          ]
+        }
+      },
+      "patch_formats": {
+        "$id": "#/properties/api_platform/properties/patch_formats",
+        "type": "object",
+        "title": "API Platform",
+        "description": "An explanation about the purpose of this instance.",
+        "properties": {
+          "json": {
+            "type": "array"
+          },
+          "graphql": {
+            "type": "array"
+          }
+        }
+      },
+      "error_formats": {
+        "$id": "#/properties/api_platform/properties/error_formats",
+        "type": "object",
+        "title": "API Platform",
+        "description": "An explanation about the purpose of this instance.",
+        "properties": {
+          "jsonproblem": {
+            "$id": "#/properties/api_platform/properties/error_formats/properties/jsonproblem",
+            "type": "object",
+            "title": "API Platform",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "mime_types": [
+                  "application/problem+json"
+                ]
+              }
+            ],
+            "properties": {
+              "mime_types": {
+                "$id": "#/properties/api_platform/properties/error_formats/properties/jsonproblem/properties/mime_types",
+                "type": "array",
+                "title": "API Platform",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "items": {
+                  "$id": "#/properties/api_platform/properties/error_formats/properties/jsonproblem/properties/mime_types/items",
+                  "type": "string",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "application/problem+json"
+                  ]
+                }
+              }
+            }
+          },
+          "jsonld": {
+            "$id": "#/properties/api_platform/properties/error_formats/properties/jsonld",
+            "type": "object",
+            "title": "API Platform",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "mime_types": [
+                  "application/ld+json"
+                ]
+              }
+            ],
+            "properties": {
+              "mime_types": {
+                "$id": "#/properties/api_platform/properties/error_formats/properties/jsonld/properties/mime_types",
+                "type": "array",
+                "title": "API Platform",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "items": {
+                  "$id": "#/properties/api_platform/properties/error_formats/properties/jsonld/properties/mime_types/items",
+                  "type": "string",
+                  "title": "API Platform",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "application/ld+json"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}

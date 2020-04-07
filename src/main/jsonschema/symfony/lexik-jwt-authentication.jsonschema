@@ -1,0 +1,213 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://schema.hiberbee.com/symfony/lexik-jwt-authentication.jsonschema",
+  "$ref": "lexik-jwt-authentication.jsonschema",
+  "type": "object",
+  "properties": {
+    "lexik_jwt_authentication": {
+      "type": "object",
+      "properties": {
+        "secret_key": {
+          "$id": "#/properties/secret_key",
+          "type": "string",
+          "examples": [
+            "%env(resolve:JWT_SECRET_KEY)%"
+          ]
+        },
+        "public_key": {
+          "$id": "#/properties/public_key",
+          "type": "string",
+          "examples": [
+            "%env(resolve:JWT_PUBLIC_KEY)%"
+          ]
+        },
+        "pass_phrase": {
+          "$id": "#/properties/pass_phrase",
+          "type": "string",
+          "examples": [
+            "%env(JWT_PASSPHRASE)%"
+          ]
+        },
+        "token_ttl": {
+          "$id": "#/properties/token_ttl",
+          "type": "integer",
+          "examples": [
+            7200
+          ]
+        },
+        "private_key_path": {
+          "$id": "#/properties/private_key_path",
+          "examples": [
+            null
+          ]
+        },
+        "public_key_path": {
+          "$id": "#/properties/public_key_path",
+          "examples": [
+            null
+          ]
+        },
+        "clock_skew": {
+          "$id": "#/properties/clock_skew",
+          "type": "integer",
+          "examples": [
+            0
+          ]
+        },
+        "encoder": {
+          "$id": "#/properties/encoder",
+          "type": "object",
+          "examples": [
+            {
+              "signature_algorithm": "RS256",
+              "service": "lexik_jwt_authentication.encoder.lcobucci",
+              "crypto_engine": "openssl"
+            }
+          ],
+          "properties": {
+            "service": {
+              "$id": "#/properties/encoder/properties/service",
+              "type": "string",
+              "examples": [
+                "lexik_jwt_authentication.encoder.lcobucci"
+              ]
+            },
+            "signature_algorithm": {
+              "$id": "#/properties/encoder/properties/signature_algorithm",
+              "type": "string",
+              "examples": [
+                "RS256"
+              ]
+            },
+            "crypto_engine": {
+              "$id": "#/properties/encoder/properties/crypto_engine",
+              "type": "string",
+              "examples": [
+                "openssl"
+              ]
+            }
+          }
+        },
+        "user_identity_field": {
+          "$id": "#/properties/user_identity_field",
+          "type": "string",
+          "examples": [
+            "username"
+          ]
+        },
+        "user_id_claim": {
+          "$id": "#/properties/user_id_claim",
+          "examples": [
+            null
+          ]
+        },
+        "token_extractors": {
+          "$id": "#/properties/token_extractors",
+          "type": "object",
+          "examples": [
+            {
+              "cookie": {
+                "name": "BEARER",
+                "enabled": false
+              },
+              "query_parameter": {
+                "name": "bearer",
+                "enabled": false
+              },
+              "authorization_header": {
+                "name": "Authorization",
+                "prefix": "Bearer",
+                "enabled": true
+              }
+            }
+          ],
+          "properties": {
+            "authorization_header": {
+              "$id": "#/properties/token_extractors/properties/authorization_header",
+              "type": "object",
+              "examples": [
+                {
+                  "name": "Authorization",
+                  "prefix": "Bearer",
+                  "enabled": true
+                }
+              ],
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/token_extractors/properties/authorization_header/properties/enabled",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "prefix": {
+                  "$id": "#/properties/token_extractors/properties/authorization_header/properties/prefix",
+                  "type": "string",
+                  "examples": [
+                    "Bearer"
+                  ]
+                },
+                "name": {
+                  "$id": "#/properties/token_extractors/properties/authorization_header/properties/name",
+                  "type": "string",
+                  "examples": [
+                    "Authorization"
+                  ]
+                }
+              }
+            },
+            "cookie": {
+              "$id": "#/properties/token_extractors/properties/cookie",
+              "type": "object",
+              "examples": [
+                {
+                  "name": "BEARER",
+                  "enabled": false
+                }
+              ],
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/token_extractors/properties/cookie/properties/enabled",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "name": {
+                  "$id": "#/properties/token_extractors/properties/cookie/properties/name",
+                  "type": "string",
+                  "examples": [
+                    "BEARER"
+                  ]
+                }
+              }
+            },
+            "query_parameter": {
+              "$id": "#/properties/token_extractors/properties/query_parameter",
+              "type": "object",
+              "examples": [
+                {
+                  "enabled": false,
+                  "name": "bearer"
+                }
+              ],
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/token_extractors/properties/query_parameter/properties/enabled",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "name": {
+                  "$id": "#/properties/token_extractors/properties/query_parameter/properties/name",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

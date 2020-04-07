@@ -1,0 +1,1393 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://schema.hiberbee.com/symfony/monolog.jsonschema",
+  "$ref": "monolog.jsonschema",
+  "type": "object",
+  "properties": {
+    "monolog": {
+      "$id": "#/properties/monolog",
+      "type": "object",
+      "examples": [
+        {
+          "handlers": {
+            "main": {
+              "deduplication_level": 400.0,
+              "use_locking": false,
+              "channel": null,
+              "message_format": "text",
+              "use_attachment": true,
+              "min_level": "DEBUG",
+              "nested": false,
+              "port": 514.0,
+              "to_email": {},
+              "process_psr_3_messages": null,
+              "filename_format": "{filename}-{date}",
+              "members": {},
+              "headers": {},
+              "include_stacktraces": false,
+              "index": "monolog",
+              "console_formater_options": {},
+              "bot_name": "Monolog",
+              "use_ssl": true,
+              "accepted_levels": {},
+              "title": null,
+              "app_name": null,
+              "host": null,
+              "include_extra": false,
+              "document_type": "logs",
+              "buffer_size": 0.0,
+              "channels": {
+                "type": "exclusive",
+                "elements": [
+                  "event"
+                ]
+              },
+              "path": "/Users/Vlad/Projects/ec-authenticator/var/log/dev.log",
+              "stop_buffering": true,
+              "message_type": 0.0,
+              "date_format": "Y-m-d",
+              "bubble": true,
+              "store": null,
+              "content_type": null,
+              "api_version": null,
+              "level": "debug",
+              "facility": "user",
+              "passthru_level": null,
+              "time": 60.0,
+              "activation_strategy": null,
+              "flush_on_overflow": false,
+              "nickname": "Monolog",
+              "max_files": 0.0,
+              "auto_log_stacks": false,
+              "client_id": null,
+              "release": null,
+              "excluded_http_codes": {},
+              "use_short_attachment": false,
+              "ignore_error": false,
+              "action_level": "WARNING",
+              "environment": null,
+              "type": "stream",
+              "file_permission": null,
+              "lazy": true,
+              "tags": {},
+              "priority": 0.0,
+              "logopts": 1.0,
+              "excluded_404s": {},
+              "icon_emoji": null,
+              "config": {},
+              "mailer": "mailer",
+              "notify": false,
+              "exchange_name": "log",
+              "ident": false,
+              "max_level": "EMERGENCY"
+            },
+            "console": {
+              "client_id": null,
+              "release": null,
+              "excluded_http_codes": {},
+              "use_short_attachment": false,
+              "environment": null,
+              "action_level": "WARNING",
+              "ignore_error": false,
+              "type": "console",
+              "file_permission": null,
+              "lazy": true,
+              "tags": {},
+              "priority": 0.0,
+              "excluded_404s": {},
+              "logopts": 1.0,
+              "icon_emoji": null,
+              "mailer": "mailer",
+              "config": {},
+              "notify": false,
+              "exchange_name": "log",
+              "ident": false,
+              "max_level": "EMERGENCY",
+              "deduplication_level": 400.0,
+              "use_locking": false,
+              "channel": null,
+              "message_format": "text",
+              "use_attachment": true,
+              "min_level": "DEBUG",
+              "nested": false,
+              "port": 514.0,
+              "to_email": {},
+              "process_psr_3_messages": false,
+              "filename_format": "{filename}-{date}",
+              "members": {},
+              "headers": {},
+              "include_stacktraces": false,
+              "index": "monolog",
+              "bot_name": "Monolog",
+              "console_formater_options": {},
+              "use_ssl": true,
+              "accepted_levels": {},
+              "title": null,
+              "app_name": null,
+              "host": null,
+              "include_extra": false,
+              "document_type": "logs",
+              "buffer_size": 0.0,
+              "channels": {
+                "elements": [
+                  "event",
+                  "doctrine",
+                  "console"
+                ],
+                "type": "exclusive"
+              },
+              "path": "%kernel.logs_dir%/%kernel.environment%.log",
+              "stop_buffering": true,
+              "message_type": 0.0,
+              "date_format": "Y-m-d",
+              "bubble": true,
+              "store": null,
+              "content_type": null,
+              "api_version": null,
+              "level": "DEBUG",
+              "facility": "user",
+              "passthru_level": null,
+              "time": 60.0,
+              "activation_strategy": null,
+              "flush_on_overflow": false,
+              "nickname": "Monolog",
+              "max_files": 0.0,
+              "auto_log_stacks": false
+            }
+          },
+          "use_microseconds": true,
+          "channels": {}
+        }
+      ],
+      "properties": {
+        "handlers": {
+          "$id": "#/properties/monolog/properties/handlers",
+          "type": "object",
+          "examples": [
+            {
+              "console": {
+                "notify": false,
+                "exchange_name": "log",
+                "ident": false,
+                "max_level": "EMERGENCY",
+                "deduplication_level": 400.0,
+                "use_locking": false,
+                "channel": null,
+                "use_attachment": true,
+                "message_format": "text",
+                "min_level": "DEBUG",
+                "nested": false,
+                "port": 514.0,
+                "to_email": {},
+                "process_psr_3_messages": false,
+                "filename_format": "{filename}-{date}",
+                "members": {},
+                "headers": {},
+                "include_stacktraces": false,
+                "index": "monolog",
+                "bot_name": "Monolog",
+                "console_formater_options": {},
+                "use_ssl": true,
+                "accepted_levels": {},
+                "title": null,
+                "app_name": null,
+                "host": null,
+                "include_extra": false,
+                "buffer_size": 0.0,
+                "document_type": "logs",
+                "stop_buffering": true,
+                "path": "%kernel.logs_dir%/%kernel.environment%.log",
+                "message_type": 0.0,
+                "date_format": "Y-m-d",
+                "bubble": true,
+                "store": null,
+                "content_type": null,
+                "api_version": null,
+                "level": "DEBUG",
+                "passthru_level": null,
+                "facility": "user",
+                "time": 60.0,
+                "activation_strategy": null,
+                "flush_on_overflow": false,
+                "nickname": "Monolog",
+                "max_files": 0.0,
+                "auto_log_stacks": false,
+                "client_id": null,
+                "release": null,
+                "excluded_http_codes": {},
+                "use_short_attachment": false,
+                "ignore_error": false,
+                "action_level": "WARNING",
+                "environment": null,
+                "type": "console",
+                "file_permission": null,
+                "lazy": true,
+                "tags": {},
+                "priority": 0.0,
+                "excluded_404s": {},
+                "logopts": 1.0,
+                "icon_emoji": null,
+                "mailer": "mailer",
+                "config": {}
+              },
+              "main": {
+                "notify": false,
+                "exchange_name": "log",
+                "ident": false,
+                "max_level": "EMERGENCY",
+                "deduplication_level": 400.0,
+                "use_locking": false,
+                "channel": null,
+                "use_attachment": true,
+                "message_format": "text",
+                "min_level": "DEBUG",
+                "nested": false,
+                "port": 514.0,
+                "to_email": {},
+                "process_psr_3_messages": null,
+                "filename_format": "{filename}-{date}",
+                "members": {},
+                "headers": {},
+                "include_stacktraces": false,
+                "index": "monolog",
+                "console_formater_options": {},
+                "bot_name": "Monolog",
+                "use_ssl": true,
+                "accepted_levels": {},
+                "title": null,
+                "app_name": null,
+                "host": null,
+                "include_extra": false,
+                "channels": {
+                  "elements": [
+                    "event"
+                  ],
+                  "type": "exclusive"
+                },
+                "buffer_size": 0.0,
+                "document_type": "logs",
+                "stop_buffering": true,
+                "path": "/Users/Vlad/Projects/ec-authenticator/var/log/dev.log",
+                "message_type": 0.0,
+                "date_format": "Y-m-d",
+                "bubble": true,
+                "store": null,
+                "content_type": null,
+                "api_version": null,
+                "level": "debug",
+                "facility": "user",
+                "passthru_level": null,
+                "time": 60.0,
+                "activation_strategy": null,
+                "flush_on_overflow": false,
+                "nickname": "Monolog",
+                "max_files": 0.0,
+                "auto_log_stacks": false,
+                "client_id": null,
+                "release": null,
+                "excluded_http_codes": {},
+                "use_short_attachment": false,
+                "ignore_error": false,
+                "action_level": "WARNING",
+                "environment": null,
+                "type": "stream",
+                "file_permission": null,
+                "lazy": true,
+                "tags": {},
+                "priority": 0.0,
+                "excluded_404s": {},
+                "logopts": 1.0,
+                "icon_emoji": null,
+                "mailer": "mailer",
+                "config": {}
+              }
+            }
+          ],
+          "properties": {
+            "main": {
+              "$id": "#/properties/monolog/properties/handlers/properties/main",
+              "type": "object",
+              "examples": [
+                {
+                  "bubble": true,
+                  "store": null,
+                  "content_type": null,
+                  "api_version": null,
+                  "level": "debug",
+                  "passthru_level": null,
+                  "facility": "user",
+                  "time": 60.0,
+                  "activation_strategy": null,
+                  "flush_on_overflow": false,
+                  "nickname": "Monolog",
+                  "max_files": 0.0,
+                  "auto_log_stacks": false,
+                  "client_id": null,
+                  "release": null,
+                  "excluded_http_codes": {},
+                  "use_short_attachment": false,
+                  "environment": null,
+                  "ignore_error": false,
+                  "action_level": "WARNING",
+                  "type": "stream",
+                  "file_permission": null,
+                  "lazy": true,
+                  "tags": {},
+                  "priority": 0.0,
+                  "excluded_404s": {},
+                  "logopts": 1.0,
+                  "icon_emoji": null,
+                  "mailer": "mailer",
+                  "config": {},
+                  "notify": false,
+                  "exchange_name": "log",
+                  "ident": false,
+                  "max_level": "EMERGENCY",
+                  "deduplication_level": 400.0,
+                  "use_locking": false,
+                  "channel": null,
+                  "use_attachment": true,
+                  "message_format": "text",
+                  "min_level": "DEBUG",
+                  "nested": false,
+                  "port": 514.0,
+                  "to_email": {},
+                  "process_psr_3_messages": null,
+                  "filename_format": "{filename}-{date}",
+                  "members": {},
+                  "headers": {},
+                  "include_stacktraces": false,
+                  "index": "monolog",
+                  "console_formater_options": {},
+                  "bot_name": "Monolog",
+                  "use_ssl": true,
+                  "accepted_levels": {},
+                  "title": null,
+                  "app_name": null,
+                  "host": null,
+                  "include_extra": false,
+                  "buffer_size": 0.0,
+                  "channels": {
+                    "type": "exclusive",
+                    "elements": [
+                      "event"
+                    ]
+                  },
+                  "document_type": "logs",
+                  "stop_buffering": true,
+                  "path": "/Users/Vlad/Projects/ec-authenticator/var/log/dev.log",
+                  "message_type": 0.0,
+                  "date_format": "Y-m-d"
+                }
+              ],
+              "properties": {
+                "type": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/type",
+                  "type": "string",
+                  "examples": [
+                    "stream"
+                  ]
+                },
+                "path": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/path",
+                  "type": "string",
+                  "examples": [
+                    "/Users/Vlad/Projects/ec-authenticator/var/log/dev.log"
+                  ]
+                },
+                "level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/level",
+                  "type": "string",
+                  "examples": [
+                    "debug"
+                  ]
+                },
+                "channels": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/channels",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "properties": {
+                    "type": {
+                      "$id": "#/properties/monolog/properties/handlers/properties/main/properties/channels/properties/type",
+                      "type": "string",
+                      "examples": [
+                        "exclusive"
+                      ]
+                    },
+                    "elements": {
+                      "$id": "#/properties/monolog/properties/handlers/properties/main/properties/channels/properties/elements",
+                      "type": "array",
+                      "allOf": [{
+                        "type": "string"
+                      }
+                      ]
+                    }
+                  }
+                },
+                "priority": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/priority",
+                  "type": "integer",
+                  "examples": [
+                    0
+                  ]
+                },
+                "bubble": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/bubble",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "app_name": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/app_name",
+                  "examples": [
+                    null
+                  ]
+                },
+                "include_stacktraces": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/include_stacktraces",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "process_psr_3_messages": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/process_psr_3_messages",
+                  "examples": [
+                    null
+                  ]
+                },
+                "file_permission": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/file_permission",
+                  "examples": [
+                    null
+                  ]
+                },
+                "use_locking": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/use_locking",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "filename_format": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/filename_format",
+                  "type": "string",
+                  "examples": [
+                    "{filename}-{date}"
+                  ]
+                },
+                "date_format": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/date_format",
+                  "type": "string",
+                  "examples": [
+                    "Y-m-d"
+                  ]
+                },
+                "ident": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/ident",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "logopts": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/logopts",
+                  "type": "integer",
+                  "examples": [
+                    1
+                  ]
+                },
+                "facility": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/facility",
+                  "type": "string",
+                  "examples": [
+                    "user"
+                  ]
+                },
+                "max_files": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/max_files",
+                  "type": "integer",
+                  "examples": [
+                    0
+                  ]
+                },
+                "action_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/action_level",
+                  "type": "string",
+                  "examples": [
+                    "WARNING"
+                  ]
+                },
+                "activation_strategy": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/activation_strategy",
+                  "examples": [
+                    null
+                  ]
+                },
+                "stop_buffering": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/stop_buffering",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "passthru_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/passthru_level",
+                  "examples": [
+                    null
+                  ]
+                },
+                "excluded_404s": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/excluded_404s",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "excluded_http_codes": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/excluded_http_codes",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "accepted_levels": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/accepted_levels",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "min_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/min_level",
+                  "type": "string",
+                  "examples": [
+                    "DEBUG"
+                  ]
+                },
+                "max_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/max_level",
+                  "type": "string",
+                  "examples": [
+                    "EMERGENCY"
+                  ]
+                },
+                "buffer_size": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/buffer_size",
+                  "type": "integer",
+                  "examples": [
+                    0
+                  ]
+                },
+                "flush_on_overflow": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/flush_on_overflow",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "exchange_name": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/exchange_name",
+                  "type": "string",
+                  "examples": [
+                    "log"
+                  ]
+                },
+                "message_format": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/message_format",
+                  "type": "string",
+                  "examples": [
+                    "text"
+                  ]
+                },
+                "api_version": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/api_version",
+                  "examples": [
+                    null
+                  ]
+                },
+                "channel": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/channel",
+                  "examples": [
+                    null
+                  ]
+                },
+                "bot_name": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/bot_name",
+                  "type": "string",
+                  "examples": [
+                    "Monolog"
+                  ]
+                },
+                "use_attachment": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/use_attachment",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "use_short_attachment": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/use_short_attachment",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "include_extra": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/include_extra",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "icon_emoji": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/icon_emoji",
+                  "examples": [
+                    null
+                  ]
+                },
+                "notify": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/notify",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "nickname": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/nickname",
+                  "type": "string",
+                  "examples": [
+                    "Monolog"
+                  ]
+                },
+                "use_ssl": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/use_ssl",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "title": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/title",
+                  "examples": [
+                    null
+                  ]
+                },
+                "host": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/host",
+                  "examples": [
+                    null
+                  ]
+                },
+                "port": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/port",
+                  "type": "integer",
+                  "examples": [
+                    514
+                  ]
+                },
+                "index": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/index",
+                  "type": "string",
+                  "examples": [
+                    "monolog"
+                  ]
+                },
+                "document_type": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/document_type",
+                  "type": "string",
+                  "examples": [
+                    "logs"
+                  ]
+                },
+                "ignore_error": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/ignore_error",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "config": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/config",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "members": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/members",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "to_email": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/to_email",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "content_type": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/content_type",
+                  "examples": [
+                    null
+                  ]
+                },
+                "headers": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/headers",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "mailer": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/mailer",
+                  "type": "string",
+                  "examples": [
+                    "mailer"
+                  ]
+                },
+                "lazy": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/lazy",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "time": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/time",
+                  "type": "integer",
+                  "examples": [
+                    60
+                  ]
+                },
+                "deduplication_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/deduplication_level",
+                  "type": "integer",
+                  "examples": [
+                    400
+                  ]
+                },
+                "store": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/store",
+                  "examples": [
+                    null
+                  ]
+                },
+                "client_id": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/client_id",
+                  "examples": [
+                    null
+                  ]
+                },
+                "auto_log_stacks": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/auto_log_stacks",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "release": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/release",
+                  "examples": [
+                    null
+                  ]
+                },
+                "environment": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/environment",
+                  "examples": [
+                    null
+                  ]
+                },
+                "message_type": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/message_type",
+                  "type": "integer",
+                  "examples": [
+                    0
+                  ]
+                },
+                "tags": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/tags",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "console_formater_options": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/console_formater_options",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "nested": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/main/properties/nested",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                }
+              }
+            },
+            "console": {
+              "$id": "#/properties/monolog/properties/handlers/properties/console",
+              "type": "object",
+              "examples": [
+                {
+                  "date_format": "Y-m-d",
+                  "bubble": true,
+                  "store": null,
+                  "content_type": null,
+                  "api_version": null,
+                  "level": "DEBUG",
+                  "facility": "user",
+                  "passthru_level": null,
+                  "time": 60.0,
+                  "activation_strategy": null,
+                  "flush_on_overflow": false,
+                  "nickname": "Monolog",
+                  "max_files": 0.0,
+                  "auto_log_stacks": false,
+                  "client_id": null,
+                  "release": null,
+                  "excluded_http_codes": {},
+                  "use_short_attachment": false,
+                  "ignore_error": false,
+                  "action_level": "WARNING",
+                  "environment": null,
+                  "type": "console",
+                  "file_permission": null,
+                  "lazy": true,
+                  "tags": {},
+                  "priority": 0.0,
+                  "logopts": 1.0,
+                  "excluded_404s": {},
+                  "icon_emoji": null,
+                  "config": {},
+                  "mailer": "mailer",
+                  "notify": false,
+                  "exchange_name": "log",
+                  "ident": false,
+                  "max_level": "EMERGENCY",
+                  "deduplication_level": 400.0,
+                  "use_locking": false,
+                  "channel": null,
+                  "use_attachment": true,
+                  "message_format": "text",
+                  "nested": false,
+                  "min_level": "DEBUG",
+                  "port": 514.0,
+                  "to_email": {},
+                  "process_psr_3_messages": false,
+                  "filename_format": "{filename}-{date}",
+                  "members": {},
+                  "headers": {},
+                  "include_stacktraces": false,
+                  "index": "monolog",
+                  "console_formater_options": {},
+                  "bot_name": "Monolog",
+                  "use_ssl": true,
+                  "accepted_levels": {},
+                  "title": null,
+                  "app_name": null,
+                  "host": null,
+                  "include_extra": false,
+                  "channels": {
+                    "elements": [
+                      "event",
+                      "doctrine",
+                      "console"
+                    ],
+                    "type": "exclusive"
+                  },
+                  "buffer_size": 0.0,
+                  "document_type": "logs",
+                  "path": "%kernel.logs_dir%/%kernel.environment%.log",
+                  "stop_buffering": true,
+                  "message_type": 0.0
+                }
+              ],
+              "properties": {
+                "type": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/type",
+                  "type": "string",
+                  "examples": [
+                    "console"
+                  ]
+                },
+                "process_psr_3_messages": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/process_psr_3_messages",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "channels": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/channels",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+
+                  "properties": {
+                    "type": {
+                      "$id": "#/properties/monolog/properties/handlers/properties/console/properties/channels/properties/type",
+                      "type": "string",
+                      "examples": [
+                        "exclusive"
+                      ]
+                    },
+                    "elements": {
+                      "$id": "#/properties/monolog/properties/handlers/properties/console/properties/channels/properties/elements",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/properties/monolog/properties/handlers/properties/console/properties/channels/properties/elements/items",
+                        "type": "string",
+                        "examples": [
+                          "event",
+                          "doctrine",
+                          "console"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "priority": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/priority",
+                  "type": "integer",
+                  "examples": [
+                    0
+                  ]
+                },
+                "level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/level",
+                  "type": "string",
+                  "examples": [
+                    "DEBUG"
+                  ]
+                },
+                "bubble": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/bubble",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "app_name": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/app_name",
+                  "examples": [
+                    null
+                  ]
+                },
+                "include_stacktraces": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/include_stacktraces",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "path": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/path",
+                  "type": "string",
+                  "examples": [
+                    "%kernel.logs_dir%/%kernel.environment%.log"
+                  ]
+                },
+                "file_permission": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/file_permission",
+                  "examples": [
+                    null
+                  ]
+                },
+                "use_locking": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/use_locking",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "filename_format": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/filename_format",
+                  "type": "string",
+                  "examples": [
+                    "{filename}-{date}"
+                  ]
+                },
+                "date_format": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/date_format",
+                  "type": "string",
+                  "examples": [
+                    "Y-m-d"
+                  ]
+                },
+                "ident": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/ident",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "logopts": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/logopts",
+                  "type": "integer",
+                  "examples": [
+                    1
+                  ]
+                },
+                "facility": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/facility",
+                  "type": "string",
+                  "examples": [
+                    "user"
+                  ]
+                },
+                "max_files": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/max_files",
+                  "type": "integer",
+                  "examples": [
+                    0
+                  ]
+                },
+                "action_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/action_level",
+                  "type": "string",
+                  "examples": [
+                    "WARNING"
+                  ]
+                },
+                "activation_strategy": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/activation_strategy",
+                  "examples": [
+                    null
+                  ]
+                },
+                "stop_buffering": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/stop_buffering",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "passthru_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/passthru_level",
+                  "examples": [
+                    null
+                  ]
+                },
+                "excluded_404s": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/excluded_404s",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "excluded_http_codes": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/excluded_http_codes",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "accepted_levels": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/accepted_levels",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "min_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/min_level",
+                  "type": "string",
+                  "examples": [
+                    "DEBUG"
+                  ]
+                },
+                "max_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/max_level",
+                  "type": "string",
+                  "examples": [
+                    "EMERGENCY"
+                  ]
+                },
+                "buffer_size": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/buffer_size",
+                  "type": "integer",
+                  "examples": [
+                    0
+                  ]
+                },
+                "flush_on_overflow": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/flush_on_overflow",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "exchange_name": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/exchange_name",
+                  "type": "string",
+                  "examples": [
+                    "log"
+                  ]
+                },
+                "message_format": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/message_format",
+                  "type": "string",
+                  "examples": [
+                    "text"
+                  ]
+                },
+                "api_version": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/api_version",
+                  "examples": [
+                    null
+                  ]
+                },
+                "channel": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/channel",
+                  "examples": [
+                    null
+                  ]
+                },
+                "bot_name": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/bot_name",
+                  "type": "string",
+                  "examples": [
+                    "Monolog"
+                  ]
+                },
+                "use_attachment": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/use_attachment",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "use_short_attachment": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/use_short_attachment",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "include_extra": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/include_extra",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "icon_emoji": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/icon_emoji",
+                  "examples": [
+                    null
+                  ]
+                },
+                "notify": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/notify",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "nickname": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/nickname",
+                  "type": "string",
+                  "examples": [
+                    "Monolog"
+                  ]
+                },
+                "use_ssl": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/use_ssl",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "title": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/title",
+                  "examples": [
+                    null
+                  ]
+                },
+                "host": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/host",
+                  "examples": [
+                    null
+                  ]
+                },
+                "port": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/port",
+                  "type": "integer",
+                  "examples": [
+                    514
+                  ]
+                },
+                "index": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/index",
+                  "type": "string",
+                  "examples": [
+                    "monolog"
+                  ]
+                },
+                "document_type": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/document_type",
+                  "type": "string",
+                  "examples": [
+                    "logs"
+                  ]
+                },
+                "ignore_error": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/ignore_error",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "config": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/config",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "members": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/members",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "to_email": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/to_email",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "content_type": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/content_type",
+                  "examples": [
+                    null
+                  ]
+                },
+                "headers": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/headers",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "mailer": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/mailer",
+                  "type": "string",
+                  "examples": [
+                    "mailer"
+                  ]
+                },
+                "lazy": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/lazy",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "time": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/time",
+                  "type": "integer",
+                  "examples": [
+                    60
+                  ]
+                },
+                "deduplication_level": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/deduplication_level",
+                  "type": "integer",
+                  "examples": [
+                    400
+                  ]
+                },
+                "store": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/store",
+                  "examples": [
+                    null
+                  ]
+                },
+                "client_id": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/client_id",
+                  "examples": [
+                    null
+                  ]
+                },
+                "auto_log_stacks": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/auto_log_stacks",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "release": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/release",
+                  "examples": [
+                    null
+                  ]
+                },
+                "environment": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/environment",
+                  "examples": [
+                    null
+                  ]
+                },
+                "message_type": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/message_type",
+                  "type": "integer",
+                  "examples": [
+                    0
+                  ]
+                },
+                "tags": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/tags",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "console_formater_options": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/console_formater_options",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "nested": {
+                  "$id": "#/properties/monolog/properties/handlers/properties/console/properties/nested",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "use_microseconds": {
+          "$id": "#/properties/monolog/properties/use_microseconds",
+          "type": "boolean",
+          "examples": [
+            true
+          ]
+        },
+        "channels": {
+          "$id": "#/properties/monolog/properties/channels",
+          "type": "object",
+          "examples": [
+            {}
+          ]
+        }
+      }
+    }
+  }
+}
