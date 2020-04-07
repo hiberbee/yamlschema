@@ -178,7 +178,7 @@ json-promise@^1.1.8:
   dependencies:
     bluebird "*"
 
-json-schema-generator@^2.0:
+json-schema-generator@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/json-schema-generator/-/json-schema-generator-2.0.6.tgz#f6f2bef5c52117f51137a9b7b1c32677239e17ca"
   integrity sha512-WyWDTK3jnv/OBI43uWw7pTGoDQ62PfccySZCHTBsOfS6D9QhsQr+95Wcwq5lqjzkiDQkTNkWzXEqHOhswfufmw==

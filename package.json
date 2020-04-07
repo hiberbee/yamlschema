@@ -1,8 +1,7 @@
 {
   "name": "@hiberbee/schema",
   "dependencies": {
-    "minimist": "^1.2.5",
-    "json-schema-generator": "^2.0"
+    "json-schema-generator": "^2.0.6"
   },
   "scripts": {
     "generate": "yarn json-schema-generator --file src/main/jsonschema/input.json --pretty --schemadir src/main/jsonschema/output.json"
