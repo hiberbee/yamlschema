@@ -1,6 +1,7 @@
 {
   "name": "@hiberbee/schema",
   "dependencies": {
+    "minimist": "^1.2.5",
     "json-schema-generator": "^2.0"
   },
   "scripts": {
