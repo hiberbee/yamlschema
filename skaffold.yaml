@@ -27,9 +27,5 @@ deploy:
 
 profiles:
   - name: prod
-    build:
-      tagPolicy:
-        envTemplate:
-          template: "{{.IMAGE_NAME}}:latest"
     activation:
       - kubeContext: do-fra1-k8s-hiberbee-dev

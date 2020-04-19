@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="AWS CodeBuild Buildspec">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="AWS CodeBuild Buildspec" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/aws/codebuild/buildspec.yml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="*buildspec.yml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="AWS ECS Task">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="AWS ECS Task" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/aws/codebuild/buildspec.yml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="**/*.task.yaml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Ansible Inventory">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Ansible Inventory" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/ansible/inventory.yml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="*inventory.yml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Ansible Playbook">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Ansible Playbook" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/ansible/playbook.yml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="*playbook.yml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Ansible Role">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Ansible Role" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/ansible/task.yml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="applicationDefined" value="true" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="**/tasks/**/*.yml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Bitbucket Pipelines">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Bitbucket Pipelines" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/bitbucket/bitbucket-pipelines.yml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="*bitbucket-pipelines.yml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Helmfile">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Helmfile" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/helm/helmfile.yaml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="*helmfile.yaml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Nginx Unit">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Nginx Unit" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/nginx/unit.json.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="docker-entrypoind.d/*.json" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Packer">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Packer" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/packer/package.json.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="*packer.json" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="RoadRunner">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="RoadRunner" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/roadrunner/config.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="*.rr.yml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Skaffold">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Skaffold" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/skaffold/skaffold.yaml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="**/skaffold.yml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Symfony">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Symfony" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/symfony/config.yaml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="**/config/packages/*.yaml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="**/resources/config/*.yml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Traefik">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Traefik" />
+              <option name="relativePathToSchema" value="https://yamlschema.net/traefik/traefik.toml.jsonschema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="pattern" value="true" />
+                    <option name="path" value="*traefik.yml" />
+                    <option name="mappingKind" value="Pattern" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>
