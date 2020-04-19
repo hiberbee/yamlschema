@@ -7,16 +7,17 @@ imagePullSecrets:
   - github-packages
 
 image:
-  registry: docker.pkg.github.com
-  repository: hiberbee/yamlschema/server
+  registry: docker.pkg.github.com/hiberbee/yamlschema
+  repository: server
   tag: latest
+  digest: ''
   pullPolicy: Always
 
 service:
   type: ClusterIP
   name: http
   externalPort: 80
-  internalPort: 80
+  internalPort: 8080
 
 nodeSelector: {}
 tolerations: []
@@ -34,4 +35,8 @@ ingress:
     - host: yamlschema.net
       path: /
 
-podSecurityContext: {}
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+  runAsNonRoot: true
+

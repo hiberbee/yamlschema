@@ -5,6 +5,11 @@ metadata:
   labels: {{ include "metadata.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 1
   selector:
     matchLabels: {{ include "pod.labels" . | indent 6 }}
   template:

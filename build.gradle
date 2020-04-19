@@ -7,7 +7,7 @@ plugins {
 
 wrapper {
   distributionType = Wrapper.DistributionType.ALL
-  gradleVersion = "6.3"
+  gradleVersion = "6.4-rc-1"
 }
 
 sonarqube {

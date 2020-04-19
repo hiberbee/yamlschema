@@ -2,7 +2,9 @@ repositories:
   - name: stable
     url: https://kubernetes-charts.storage.googleapis.com
 
+helmDefaults:
+  historyMax: 3
+
 releases:
   - name: yamlschema
-    namespace: default
     chart: .
