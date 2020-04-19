@@ -1,4 +1,6 @@
-.dockerignore
-Dockerfile
-.git
+*ignore
+.git*
+*gradle*
+templates
 .idea
+*.log

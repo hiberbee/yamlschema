@@ -1,0 +1,8 @@
+*.md
+*gradle*
+.dockerignore
+.git*
+.idea
+Caddyfile
+Dockerfile
+src

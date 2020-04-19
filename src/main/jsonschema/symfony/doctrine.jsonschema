@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://schema.hiberbee.com/symfony/doctrine.jsonschema",
+  "$id": "https://yamlschema.net/symfony/",
   "$ref": "doctrine.jsonschema",
   "type": "object",
   "properties": {

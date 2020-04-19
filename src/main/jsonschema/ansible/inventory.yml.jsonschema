@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://yamlschema.net/ansible/",
+  "title": "Ansible Inventory",
+  "$ref": "inventory.yml.jsonschema",
+  "definitions": {
+    "group": {
+      "type": "object",
+      "items": {
+      }
+    }
+  },
+  "description": "root schema of Ansible Playbook",
+  "properties": {
+    "all": {
+    }
+  },
+  "items": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/group"
+      }
+    ]
+  },
+  "type": "array"
+}

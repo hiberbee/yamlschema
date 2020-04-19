@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://yamlschema.net/ansible/",
+  "$ref": "playbook.yml.jsonschema",
+  "definitions": {
+    "any_errors_fatal": {
+      "$ref": "#/definitions/boolean"
+    },
+    "become": {
+      "$ref": "#/definitions/boolean",
+      "title": "Become | Ansible Playbook"
+    },
+    "become_method": {
+      "type": "string",
+      "title": "Become Method | Ansible Playbook",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "sudo",
+        "su",
+        "su-exec",
+        "gosu"
+      ]
+    },
+    "become_password": {
+      "type": "string",
+      "title": "Become Password | Ansible Playbook"
+    },
+    "become_user": {
+      "type": "string",
+      "title": "Become User | Ansible Playbook"
+    },
+    "boolean": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string",
+          "x-intellij-case-insensitive": true,
+          "enum": [
+            "true",
+            "false",
+            "yes",
+            "no"
+          ]
+        }
+      ]
+    },
+    "connection": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "local"
+          ]
+        }
+      ],
+      "description": "An explanation about the purpose of this instance.",
+      "title": "Connection | Ansible Playbook",
+      "type": "string"
+    },
+    "environment": {
+      "patternProperties": {
+        "[a-zA-Z0-9_]": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ]
+        }
+      },
+      "title": "Environment | Ansible Playbook",
+      "type": "object"
+    },
+    "gather_facts": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "all",
+            "smart"
+          ]
+        },
+        {
+          "type": "boolean"
+        }
+      ],
+      "description": "An explanation about the purpose of this instance.",
+      "title": "Gather Facts | Ansible Playbook"
+    },
+    "max_fail_percentage": {
+      "$id": "#/definitions/max_fail_percentage",
+      "title": "Max Fail Percentage | Ansible Playbook",
+      "type": "integer"
+    },
+    "module_defaults": {
+      "$id": "#/definitions/module_defaults",
+      "title": "Module Defautls | Ansible Playbook",
+      "type": "object"
+    },
+    "playbook": {
+      "$id": "#/definitions/playbook",
+      "properties": {
+        "any_errors_fatal": {
+          "$ref": "#/definitions/any_errors_fatal"
+        },
+        "become": {
+          "$ref": "#/definitions/become"
+        },
+        "become_method": {
+          "$ref": "#/definitions/become_method"
+        },
+        "become_password": {
+          "$ref": "#/definitions/become_password"
+        },
+        "become_user": {
+          "$ref": "#/definitions/become_user"
+        },
+        "connection": {
+          "$ref": "#/definitions/connection"
+        },
+        "debugger": {
+          "$id": "#/definitions/playbook/properties/debugger",
+          "type": "string",
+          "enum": [
+            "on_failed",
+            "always",
+            "never",
+            "on_unreachable",
+            "on_skipped"
+          ],
+          "title": "Debugger | Ansible Playbook"
+        },
+        "environment": {
+          "$ref": "#/definitions/environment"
+        },
+        "gather_facts": {
+          "$ref": "#/definitions/gather_facts"
+        },
+        "handlers": {
+          "$id": "#/definitions/playbook/properties/handlers",
+          "items": {
+            "allOf": [
+              {
+                "$id": "#/items",
+                "$ref": "http://json.schemastore.org/ansible-stable-2.9"
+              }
+            ]
+          },
+          "title": "Handlers | Ansible Playbook",
+          "type": "array"
+        },
+        "hosts": {
+          "$id": "#/definitions/playbook/properties/hosts",
+          "type": "string",
+          "title": "Hosts | Ansible Playbook",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "all",
+          "examples": [
+            "all",
+            "127.0.0.1"
+          ]
+        },
+        "max_fail_percentage": {
+          "$ref": "#/definitions/max_fail_percentage"
+        },
+        "module_defaults": {
+          "$ref": "#/definitions/module_defaults"
+        },
+        "name": {
+          "$id": "#/definitions/playbook/properties/name",
+          "type": "string",
+          "title": "Name | Ansible Playbook",
+          "description": "Playbook name"
+        },
+        "order": {
+          "$id": "#/definitions/playbook/properties/order",
+          "title": "Order | Ansible Playbook",
+          "default": "inventory",
+          "anyOf": [
+            {
+              "enum": [
+                "inventory",
+                "reverse_inventory",
+                "sorted",
+                "shuffle",
+                "reverse_sorted"
+              ],
+              "type": "string"
+            }
+          ]
+        },
+        "post_tasks": {
+          "$id": "#/definitions/playbook/properties/post_tasks",
+          "allOf": [
+            {
+              "$id": "#/items",
+              "$ref": "http://json.schemastore.org/ansible-stable-2.9",
+              "title": "Post Tasks | Ansible Playbook"
+            }
+          ],
+          "type": "array"
+        },
+        "pre_tasks": {
+          "$id": "#/definitions/playbook/properties/pre_tasks",
+          "allOf": [
+            {
+              "$id": "#/items",
+              "title": "Pre Tasks | Ansible Playbook",
+              "$ref": "http://json.schemastore.org/ansible-stable-2.9"
+            }
+          ],
+          "type": "array"
+        },
+        "remote_user": {
+          "$id": "#/definitions/playbook/properties/remote_user",
+          "title": "Remote_user | Ansible Playbook",
+          "type": "string"
+        },
+        "roles": {
+          "$id": "#/definitions/playbook/properties/roles",
+          "items": {
+            "allOf": [
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Roles | Ansible Playbook",
+          "type": "array"
+        },
+        "serial": {
+          "$ref": "#/definitions/serial"
+        },
+        "tags": {
+          "$id": "#/definitions/playbook/properties/tags",
+          "items": {
+            "allOf": [
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Tags | Ansible Playbook",
+          "type": "array"
+        },
+        "tasks": {
+          "$id": "#/definitions/playbook/properties/tasks",
+          "title": "Tasks | Ansible Playbook",
+          "allOf": [
+            {
+              "$id": "#/items",
+              "$ref": "http://json.schemastore.org/ansible-stable-2.9"
+            }
+          ],
+          "type": "array"
+        },
+        "vars": {
+          "$id": "#/definitions/playbook/properties/vars",
+          "default": {},
+          "description": "An explanation about the purpose of this instance.",
+          "patternProperties": {
+            "[a-zA-Z0-9_]": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "array"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "title": "Vars | Ansible Playbook",
+          "type": "object"
+        },
+        "vars_files": {
+          "$id": "#/definitions/playbook/properties/vars_files",
+          "items": {
+            "allOf": [
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Var Files | Ansible Playbook",
+          "type": "array"
+        }
+      },
+      "required": [
+        "hosts"
+      ],
+      "title": "Ansible Playbook schema",
+      "type": "object"
+    },
+    "serial": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "array",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "$id": "#/definitions/module_defaults",
+      "title": "Serial | Ansible Playbook"
+    }
+  },
+  "description": "root schema of Ansible Playbook",
+  "items": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/playbook"
+      }
+    ]
+  },
+  "title": "Ansible Playbook",
+  "type": "array"
+}

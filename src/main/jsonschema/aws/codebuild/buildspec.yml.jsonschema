@@ -1,0 +1,299 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://yamlschema.net/aws/codebuild/",
+  "$ref": "buildspec.yml.jsonschema",
+  "type": "object",
+  "definitions": {
+    "run-as": {
+      "$id": "#/definitions/run-as",
+      "type": "string"
+    },
+    "version": {
+      "$id": "#/properties/version",
+      "type": "number"
+    },
+    "key-value": {
+      "$id": "#/properties/env/properties/variables",
+      "type": "object",
+      "properties": {
+        "[a-zA-Z_]": {
+          "$id": "#/properties/env/properties/variables/properties/key",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "properties": {
+    "version": {
+      "$ref": "#/definitions/version"
+    },
+    "run-as": {
+      "$ref": "#/definitions/run-as"
+    },
+    "env": {
+      "$id": "#/properties/env",
+      "type": "object",
+      "properties": {
+        "variables": {
+          "$ref": "#/definitions/key-value"
+        },
+        "parameter-store": {
+          "$ref": "#/definitions/key-value"
+        },
+        "exported-variables": {
+          "$id": "#/properties/env/properties/exported-variables",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/env/properties/exported-variables/items",
+            "type": "string"
+          }
+        },
+        "secrets-manager": {
+          "$ref": "#/definitions/key-value"
+        },
+        "git-credential-helper": {
+          "$id": "#/properties/env/properties/git-credential-helper",
+          "type": "string"
+        }
+      }
+    },
+    "proxy": {
+      "$id": "#/properties/proxy",
+      "type": "object",
+      "properties": {
+        "upload-artifacts": {
+          "$id": "#/properties/proxy/properties/upload-artifacts",
+          "type": "string"
+        },
+        "logs": {
+          "$id": "#/properties/proxy/properties/logs",
+          "type": "string"
+        }
+      }
+    },
+    "phases": {
+      "$id": "#/properties/phases",
+      "type": "object",
+      "properties": {
+        "install": {
+          "$id": "#/properties/phases/properties/install",
+          "type": "object",
+          "properties": {
+            "run-as": {
+              "$id": "#/properties/phases/properties/install/properties/run-as",
+              "type": "string"
+            },
+            "runtime-versions": {
+              "$id": "#/properties/phases/properties/install/properties/runtime-versions",
+              "type": "object",
+              "properties": {
+                "runtime": {
+                  "$id": "#/properties/phases/properties/install/properties/runtime-versions/properties/runtime",
+                  "type": "string"
+                }
+              }
+            },
+            "commands": {
+              "$id": "#/properties/phases/properties/install/properties/commands",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/phases/properties/install/properties/commands/items",
+                "type": "string"
+              }
+            },
+            "finally": {
+              "$id": "#/properties/phases/properties/install/properties/finally",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/phases/properties/install/properties/finally/items",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "pre_build": {
+          "$id": "#/properties/phases/properties/pre_build",
+          "type": "object",
+          "properties": {
+            "run-as": {
+              "$id": "#/properties/phases/properties/pre_build/properties/run-as",
+              "type": "string"
+            },
+            "commands": {
+              "$id": "#/properties/phases/properties/pre_build/properties/commands",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/phases/properties/pre_build/properties/commands/items",
+                "type": "string"
+              }
+            },
+            "finally": {
+              "$id": "#/properties/phases/properties/pre_build/properties/finally",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/phases/properties/pre_build/properties/finally/items",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "build": {
+          "$id": "#/properties/phases/properties/build",
+          "type": "object",
+          "properties": {
+            "run-as": {
+              "$id": "#/properties/phases/properties/build/properties/run-as",
+              "type": "string"
+            },
+            "commands": {
+              "$id": "#/properties/phases/properties/build/properties/commands",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/phases/properties/build/properties/commands/items",
+                "type": "string"
+              }
+            },
+            "finally": {
+              "$id": "#/properties/phases/properties/build/properties/finally",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/phases/properties/build/properties/finally/items",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "post_build": {
+          "$id": "#/properties/phases/properties/post_build",
+          "type": "object",
+          "properties": {
+            "run-as": {
+              "$id": "#/properties/phases/properties/post_build/properties/run-as",
+              "type": "string"
+            },
+            "commands": {
+              "$id": "#/properties/phases/properties/post_build/properties/commands",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/phases/properties/post_build/properties/commands/items",
+                "type": "string"
+              }
+            },
+            "finally": {
+              "$id": "#/properties/phases/properties/post_build/properties/finally",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/phases/properties/post_build/properties/finally/items",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "reports": {
+      "$id": "#/properties/reports",
+      "type": "object",
+      "properties": {
+        "report-name-or-arn": {
+          "$id": "#/properties/reports/properties/report-name-or-arn",
+          "type": "object",
+          "properties": {
+            "files": {
+              "$id": "#/properties/reports/properties/report-name-or-arn/properties/files",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/reports/properties/report-name-or-arn/properties/files/items",
+                "type": "string"
+              }
+            },
+            "base-directory": {
+              "$id": "#/properties/reports/properties/report-name-or-arn/properties/base-directory",
+              "type": "string"
+            },
+            "discard-paths": {
+              "$id": "#/properties/reports/properties/report-name-or-arn/properties/discard-paths",
+              "type": "string"
+            },
+            "file-format": {
+              "$id": "#/properties/reports/properties/report-name-or-arn/properties/file-format",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "$id": "#/properties/artifacts",
+      "type": "object",
+      "properties": {
+        "files": {
+          "$id": "#/properties/artifacts/properties/files",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/artifacts/properties/files/items",
+            "type": "string"
+          }
+        },
+        "name": {
+          "$id": "#/properties/artifacts/properties/name",
+          "type": "string"
+        },
+        "discard-paths": {
+          "$id": "#/properties/artifacts/properties/discard-paths",
+          "type": "string"
+        },
+        "base-directory": {
+          "$id": "#/properties/artifacts/properties/base-directory",
+          "type": "string"
+        },
+        "secondary-artifacts": {
+          "$id": "#/properties/artifacts/properties/secondary-artifacts",
+          "type": "object",
+          "properties": {
+            "artifactIdentifier": {
+              "$id": "#/properties/artifacts/properties/secondary-artifacts/properties/artifactIdentifier",
+              "type": "object",
+              "properties": {
+                "files": {
+                  "$id": "#/properties/artifacts/properties/secondary-artifacts/properties/artifactIdentifier/properties/files",
+                  "type": "array",
+                  "items": {
+                    "$id": "#/properties/artifacts/properties/secondary-artifacts/properties/artifactIdentifier/properties/files/items",
+                    "type": "string"
+                  }
+                },
+                "name": {
+                  "$id": "#/properties/artifacts/properties/secondary-artifacts/properties/artifactIdentifier/properties/name",
+                  "type": "string"
+                },
+                "discard-paths": {
+                  "$id": "#/properties/artifacts/properties/secondary-artifacts/properties/artifactIdentifier/properties/discard-paths",
+                  "type": "string"
+                },
+                "base-directory": {
+                  "$id": "#/properties/artifacts/properties/secondary-artifacts/properties/artifactIdentifier/properties/base-directory",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "cache": {
+      "$id": "#/properties/cache",
+      "type": "object",
+      "properties": {
+        "paths": {
+          "$id": "#/properties/cache/properties/paths",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/cache/properties/paths/items",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

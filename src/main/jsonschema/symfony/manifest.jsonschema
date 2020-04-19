@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://schema.hiberbee.com/symfony/flext/manifest.jsonschema",
+  "$id": "https://yamlschema.net/symfony/",
   "$ref": "manifest.jsonschema",
   "type": "object",
   "properties": {

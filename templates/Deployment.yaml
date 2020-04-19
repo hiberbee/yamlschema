@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "metadata.name" . }}
+  labels: {{ include "metadata.labels" . | indent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels: {{ include "pod.labels" . | indent 6 }}
+  template:
+    metadata:
+      labels: {{ include "pod.labels" . | indent 8 }}
+    spec: {{ with .Values.imagePullSecrets }}
+      imagePullSecrets: {{ range . }}
+        - name: {{ toYaml . }} {{ end }} {{ end }}
+      securityContext: {{ toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: caddy
+          image: {{ printf "%s/%s:%s" .Values.image.registry .Values.image.repository (default .Chart.Version .Values.image.tag)  }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.internalPort }}
+              name: http
+              protocol: TCP
+          resources: {{ toYaml .Values.resources | nindent 12 }}
+      nodeSelector: {{ toYaml .Values.nodeSelector | nindent 8 }}
+      affinity: {{ toYaml .Values.affinity | nindent 8 }}
+      tolerations: {{ toYaml .Values.tolerations | nindent 8 }}

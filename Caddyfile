@@ -1,0 +1,10 @@
+{
+	experimental_http3
+	email vlad@hiberbee.com
+}
+:80 {
+	root * /var/www/html
+	encode zstd gzip
+	templates
+	file_server browse
+}

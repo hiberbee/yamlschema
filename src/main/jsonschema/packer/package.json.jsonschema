@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://yamlschema.net/packer/",
+  "$ref": "package.json.jsonschema",
+  "type": "object",
+  "additionalProperties": true,
+  "definitions": {
+    "builder": {
+      "type": "object",
+      "properties": {
+        "add_force": {
+          "type": "boolean"
+        },
+        "box_name": {
+          "type": "string"
+        },
+        "communicator": {
+          "type": "string",
+          "enum": [
+            "ssh"
+          ]
+        },
+        "provider": {
+          "$id": "#/properties/builders/items/properties/provider",
+          "type": "string"
+        },
+        "source_path": {
+          "$id": "#/properties/builders/items/properties/source_path",
+          "type": "string"
+        },
+        "ssh_password": {
+          "$id": "#/properties/builders/items/properties/ssh_password",
+          "type": "string"
+        },
+        "ssh_username": {
+          "$id": "#/properties/builders/items/properties/ssh_username",
+          "type": "string"
+        },
+        "type": {
+          "$id": "#/properties/builders/items/properties/type",
+          "type": "string"
+        }
+      }
+    },
+    "ansible-local-provisioner": {
+      "type": "object",
+      "properties": {
+        "playbook_file": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "playbook_file"
+      ]
+    },
+    "shell-provisioner": {
+      "type": "object",
+      "properties": {
+        "inline": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "provisioner": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "shell",
+            "ansible-local"
+          ]
+        }
+      },
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ansible-local-provisioner"
+        },
+        {
+          "$ref": "#/definitions/shell-provisioner"
+        }
+      ],
+      "required": [
+        "type"
+      ]
+    },
+    "post-processor": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "compress",
+            "upload"
+          ]
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "keep_input_artifact": {
+          "type": "boolean"
+        },
+        "only": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "tar.gz"
+          ]
+        },
+        "compression_level": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "properties": {
+    "variables": {
+      "$ref": "../key-value.jsonschema"
+    },
+    "builders": {
+      "$id": "#/properties/builders",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/builder"
+      }
+    },
+    "provisioners": {
+      "$id": "#/properties/provisioners",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/provisioner"
+      }
+    },
+    "post-processors": {
+      "$id": "#/properties/post-processors",
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": [
+              "vagrant",
+              "compress"
+            ]
+          },
+          {
+            "$ref": "#/definitions/post-processor"
+          }
+        ]
+      }
+    }
+  }
+}
