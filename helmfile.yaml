@@ -4,7 +4,4 @@ helmDefaults:
 releases:
   - name: yamlschema
     namespace: default
-    chart: .
-    values:
-      - image:
-          tag: "20200419044300"
+    chart: ./../yamlschema

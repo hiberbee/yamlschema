@@ -1,4 +1,11 @@
 name: yamlschema
 apiVersion: v2
 version: 1.0.0
-appVersion: 1.0.0
+appVersion: 20200423022846
+home: https://yamlschema.net
+sources:
+  - https://github.com/hiberbee/yamlschema.net
+maintainers:
+  - name: Vlad Volkov
+    url: https://github.com/vladyslavvolkov
+    email: vlad@hiberbee.com

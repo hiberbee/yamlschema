@@ -138,27 +138,13 @@
             "type": "array",
             "items": {
               "required": [],
-              "properties": {}
+              "type": "string"
             }
           },
           "values": {
             "type": "array",
             "items": {
-              "required": [],
-              "properties": {
-                "1": {
-                  "type": "object",
-                  "properties": {
-                    "key1": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "key1"
-                  ]
-                }
-              }
+              "$ref": "https://yamlschema.net/key-value.jsonschema"
             }
           }
         }
@@ -171,7 +157,6 @@
       "items": {
         "required": [
           "name",
-          "namespace",
           "chart"
         ],
         "properties": {
@@ -185,15 +170,12 @@
           },
           "labels": {
             "type": "object",
-            "properties": {
-              "foo": {
+            "patternProperties": {
+              "[a-z./]": {
                 "type": "string",
                 "minLength": 1
               }
-            },
-            "required": [
-              "foo"
-            ]
+            }
           },
           "chart": {
             "type": "string",
@@ -210,23 +192,7 @@
           "values": {
             "type": "array",
             "items": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "object",
-                  "propertyNames": {
-                    "pattern": "[a-zA-Z0-9_-]"
-                  }
-                }
-              ]
+              "$ref": "https://yamlschema.net/key-value.jsonschema"
             }
           },
           "set": {
@@ -350,7 +316,5 @@
         }
       }
     }
-  },
-  "required": [
-  ]
+  }
 }

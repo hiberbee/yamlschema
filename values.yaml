@@ -11,7 +11,7 @@ image:
   repository: server
   tag: latest
   digest: ''
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
@@ -30,7 +30,7 @@ ingress:
     secretName: yamlschema-net-tls
   annotations:
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/tls-acme: "true"
   hosts:
     - host: yamlschema.net
       path: /
