@@ -6,3 +6,5 @@
 Caddyfile
 Dockerfile
 src
+.run
+LICENSE

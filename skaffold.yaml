@@ -24,8 +24,3 @@ deploy:
         imageStrategy:
           helm:
             explicitRegistry: true
-
-profiles:
-  - name: prod
-    activation:
-      - kubeContext: do-fra1-k8s-hiberbee-dev

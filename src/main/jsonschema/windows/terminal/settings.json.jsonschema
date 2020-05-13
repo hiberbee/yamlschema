@@ -1,0 +1,327 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://yamlschema.net/windows/",
+  "$ref": "settings.json.jsonschema",
+  "type": "object",
+  "default": {},
+  "required": [
+    "defaultProfile"
+  ],
+  "properties": {
+    "defaultProfile": {
+      "$id": "#/properties/defaultProfile",
+      "type": "string"
+    },
+    "initialCols": {
+      "$id": "#/properties/initialCols",
+      "type": "number",
+      "default": 0.0
+    },
+    "initialRows": {
+      "$id": "#/properties/initialRows",
+      "type": "number",
+      "default": 0.0
+    },
+    "launchMode": {
+      "$id": "#/properties/launchMode",
+      "type": "string",
+      "default": ""
+    },
+    "copyOnSelect": {
+      "$id": "#/properties/copyOnSelect",
+      "type": "boolean",
+      "default": false
+    },
+    "copyFormatting": {
+      "$id": "#/properties/copyFormatting",
+      "type": "boolean",
+      "default": false
+    },
+    "wordDelimiters": {
+      "$id": "#/properties/wordDelimiters",
+      "type": "string",
+      "default": ""
+    },
+    "alwaysShowTabs": {
+      "$id": "#/properties/alwaysShowTabs",
+      "type": "boolean",
+      "default": false
+    },
+    "showTabsInTitlebar": {
+      "$id": "#/properties/showTabsInTitlebar",
+      "type": "boolean",
+      "default": false
+    },
+    "showTerminalTitleInTitlebar": {
+      "$id": "#/properties/showTerminalTitleInTitlebar",
+      "type": "boolean",
+      "default": false
+    },
+    "tabWidthMode": {
+      "$id": "#/properties/tabWidthMode",
+      "type": "string",
+      "default": ""
+    },
+    "confirmCloseAllTabs": {
+      "$id": "#/properties/confirmCloseAllTabs",
+      "type": "boolean",
+      "default": false
+    },
+    "theme": {
+      "$id": "#/properties/theme",
+      "type": "string",
+      "default": ""
+    },
+    "rowsToScroll": {
+      "$id": "#/properties/rowsToScroll",
+      "type": "string",
+      "default": ""
+    },
+    "snapToGridOnResize": {
+      "$id": "#/properties/snapToGridOnResize",
+      "type": "boolean",
+      "default": false
+    },
+    "profiles": {
+      "$id": "#/properties/profiles",
+      "type": "array",
+      "default": [],
+      "items": {
+        "anyOf": [
+          {
+            "$id": "#/properties/profiles/items/anyOf/0",
+            "type": "object",
+            "default": {},
+            "properties": {
+              "guid": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/guid",
+                "type": "string",
+                "default": ""
+              },
+              "name": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/name",
+                "type": "string",
+                "default": ""
+              },
+              "commandline": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/commandline",
+                "type": "string",
+                "default": ""
+              },
+              "icon": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/icon",
+                "type": "string",
+                "default": ""
+              },
+              "colorScheme": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/colorScheme",
+                "type": "string",
+                "default": ""
+              },
+              "antialiasingMode": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/antialiasingMode",
+                "type": "string",
+                "default": ""
+              },
+              "closeOnExit": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/closeOnExit",
+                "type": "string",
+                "default": ""
+              },
+              "cursorShape": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/cursorShape",
+                "type": "string",
+                "default": ""
+              },
+              "fontFace": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/fontFace",
+                "type": "string",
+                "default": ""
+              },
+              "fontSize": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/fontSize",
+                "type": "number",
+                "default": 0.0
+              },
+              "hidden": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/hidden",
+                "type": "boolean",
+                "default": false
+              },
+              "historySize": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/historySize",
+                "type": "number",
+                "default": 0.0
+              },
+              "padding": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/padding",
+                "type": "string",
+                "default": ""
+              },
+              "snapOnInput": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/snapOnInput",
+                "type": "boolean",
+                "default": false
+              },
+              "startingDirectory": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/startingDirectory",
+                "type": "string",
+                "default": ""
+              },
+              "useAcrylic": {
+                "$id": "#/properties/profiles/items/anyOf/0/properties/useAcrylic",
+                "type": "boolean",
+                "default": false
+              }
+            }
+          }
+        ],
+        "$id": "#/properties/profiles/items"
+      }
+    },
+    "schemes": {
+      "$id": "#/properties/schemes",
+      "type": "array",
+      "default": [],
+      "items": {
+        "anyOf": [
+          {
+            "$id": "#/properties/schemes/items/anyOf/0",
+            "type": "object",
+            "default": {},
+            "properties": {
+              "name": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/name",
+                "type": "string",
+                "default": ""
+              },
+              "foreground": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/foreground",
+                "type": "string",
+                "default": ""
+              },
+              "background": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/background",
+                "type": "string",
+                "default": ""
+              },
+              "cursorColor": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/cursorColor",
+                "type": "string",
+                "default": ""
+              },
+              "black": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/black",
+                "type": "string",
+                "default": ""
+              },
+              "red": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/red",
+                "type": "string",
+                "default": ""
+              },
+              "green": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/green",
+                "type": "string",
+                "default": ""
+              },
+              "yellow": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/yellow",
+                "type": "string",
+                "default": ""
+              },
+              "blue": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/blue",
+                "type": "string",
+                "default": ""
+              },
+              "purple": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/purple",
+                "type": "string",
+                "default": ""
+              },
+              "cyan": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/cyan",
+                "type": "string",
+                "default": ""
+              },
+              "white": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/white",
+                "type": "string",
+                "default": ""
+              },
+              "brightBlack": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/brightBlack",
+                "type": "string",
+                "default": ""
+              },
+              "brightRed": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/brightRed",
+                "type": "string",
+                "default": ""
+              },
+              "brightGreen": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/brightGreen",
+                "type": "string",
+                "default": ""
+              },
+              "brightYellow": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/brightYellow",
+                "type": "string",
+                "default": ""
+              },
+              "brightBlue": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/brightBlue",
+                "type": "string",
+                "default": ""
+              },
+              "brightPurple": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/brightPurple",
+                "type": "string",
+                "default": ""
+              },
+              "brightCyan": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/brightCyan",
+                "type": "string",
+                "default": ""
+              },
+              "brightWhite": {
+                "$id": "#/properties/schemes/items/anyOf/0/properties/brightWhite",
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        ],
+        "$id": "#/properties/schemes/items"
+      }
+    },
+    "keybindings": {
+      "$id": "#/properties/keybindings",
+      "type": "array",
+      "default": [],
+      "items": {
+        "anyOf": [
+          {
+            "$id": "#/properties/keybindings/items/anyOf/0",
+            "type": "object",
+            "default": {},
+            "properties": {
+              "command": {
+                "$id": "#/properties/keybindings/items/anyOf/0/properties/command",
+                "type": "string",
+                "default": ""
+              },
+              "keys": {
+                "$id": "#/properties/keybindings/items/anyOf/0/properties/keys",
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        ],
+        "$id": "#/properties/keybindings/items"
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://yamlschema.net/helm/",
   "$ref": "helmfile.yaml.jsonschema",
   "title": "Helmfile",
@@ -32,25 +32,13 @@
                 "required": [],
                 "patternProperties": {
                   "[a-z0-9A-Z_]": {
-                    "type": "object",
-                    "patternProperties": {
-                      "[a-z0-9A-Z_]": {
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                    ]
+                    "type": "object"
                   }
                 }
               }
             },
             "secrets": {
-              "type": "array",
-              "items": {
-                "required": [],
-                "properties": {}
-              }
+              "type": "array"
             },
             "missingFileHandler": {
               "type": "string",
@@ -166,7 +154,7 @@
           },
           "namespace": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
           },
           "labels": {
             "type": "object",

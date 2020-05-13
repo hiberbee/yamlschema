@@ -1,23 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://yamlschema.net/aws/codebuild/",
   "$ref": "buildspec.yml.jsonschema",
   "type": "object",
   "definitions": {
     "run-as": {
-      "$id": "#/definitions/run-as",
       "type": "string"
     },
     "version": {
-      "$id": "#/properties/version",
       "type": "number"
     },
     "key-value": {
-      "$id": "#/properties/env/properties/variables",
       "type": "object",
       "properties": {
         "[a-zA-Z_]": {
-          "$id": "#/properties/env/properties/variables/properties/key",
+          "$ref": "https://yamlschema.net/key-value.jsonschema",
           "type": "string"
         }
       }
@@ -31,7 +28,6 @@
       "$ref": "#/definitions/run-as"
     },
     "env": {
-      "$id": "#/properties/env",
       "type": "object",
       "properties": {
         "variables": {
@@ -41,10 +37,9 @@
           "$ref": "#/definitions/key-value"
         },
         "exported-variables": {
-          "$id": "#/properties/env/properties/exported-variables",
           "type": "array",
           "items": {
-            "$id": "#/properties/env/properties/exported-variables/items",
+            "$ref": "#/definitions/key-value",
             "type": "string"
           }
         },
@@ -52,60 +47,51 @@
           "$ref": "#/definitions/key-value"
         },
         "git-credential-helper": {
-          "$id": "#/properties/env/properties/git-credential-helper",
           "type": "string"
         }
       }
     },
     "proxy": {
-      "$id": "#/properties/proxy",
       "type": "object",
       "properties": {
         "upload-artifacts": {
-          "$id": "#/properties/proxy/properties/upload-artifacts",
           "type": "string"
         },
         "logs": {
-          "$id": "#/properties/proxy/properties/logs",
           "type": "string"
         }
       }
     },
     "phases": {
-      "$id": "#/properties/phases",
       "type": "object",
       "properties": {
         "install": {
-          "$id": "#/properties/phases/properties/install",
           "type": "object",
           "properties": {
             "run-as": {
-              "$id": "#/properties/phases/properties/install/properties/run-as",
+              "$ref": "#/definitions/run-as",
               "type": "string"
             },
             "runtime-versions": {
-              "$id": "#/properties/phases/properties/install/properties/runtime-versions",
               "type": "object",
               "properties": {
                 "runtime": {
-                  "$id": "#/properties/phases/properties/install/properties/runtime-versions/properties/runtime",
                   "type": "string"
                 }
               }
             },
             "commands": {
-              "$id": "#/properties/phases/properties/install/properties/commands",
+              "$id": "/properties/phases/properties/install/properties/commands",
               "type": "array",
               "items": {
-                "$id": "#/properties/phases/properties/install/properties/commands/items",
                 "type": "string"
               }
             },
             "finally": {
-              "$id": "#/properties/phases/properties/install/properties/finally",
+              "$id": "/properties/phases/properties/install/properties/finally",
               "type": "array",
               "items": {
-                "$id": "#/properties/phases/properties/install/properties/finally/items",
+                "$id": "/properties/phases/properties/install/properties/finally/items",
                 "type": "string"
               }
             }

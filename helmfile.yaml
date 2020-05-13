@@ -4,4 +4,4 @@ helmDefaults:
 releases:
   - name: yamlschema
     namespace: default
-    chart: ./../yamlschema
+    chart: .
