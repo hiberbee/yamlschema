@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "https://yamlschema.net/helm/",
   "$ref": "helmfile.yaml.jsonschema",
   "title": "Helmfile",
@@ -150,16 +150,19 @@
         "properties": {
           "name": {
             "type": "string",
-            "minLength": 1
+            "x-intellij-language-injection": {
+              "language": "GoTemplate"
+            }
           },
           "namespace": {
-            "type": "string",
-            "minLength": 1,
+            "x-intellij-language-injection": {
+              "language": "GoTemplate"
+            }
           },
           "labels": {
             "type": "object",
             "patternProperties": {
-              "[a-z./]": {
+              "[a-z=./]": {
                 "type": "string",
                 "minLength": 1
               }
@@ -167,15 +170,15 @@
           },
           "chart": {
             "type": "string",
-            "minLength": 1
+            "x-intellij-language-injection": {
+              "language": "File Reference"
+            }
           },
           "version": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "missingFileHandler": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "values": {
             "type": "array",
