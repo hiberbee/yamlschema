@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "https://yamlschema.net/docker/",
   "$ref": "docker-compose.yml.jsonschema",
   "title": "Docker Compose schema",
