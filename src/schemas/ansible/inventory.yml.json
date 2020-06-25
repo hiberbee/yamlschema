@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Ansible Inventory",
+  "$ref": "inventory.yml.json",
+  "definitions": {
+    "group": {
+      "type": "object",
+      "items": {
+      }
+    }
+  },
+  "description": "root schema of Ansible Playbook",
+  "properties": {
+    "all": {
+    }
+  },
+  "items": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/group"
+      }
+    ]
+  },
+  "type": "array"
+}

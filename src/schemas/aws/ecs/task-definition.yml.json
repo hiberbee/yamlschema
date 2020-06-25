@@ -1,0 +1,349 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$ref": "task-definition.yml.json",
+  "type": "object",
+  "properties": {
+    "ipcMode": {
+      "$id": "#/properties/ipcMode"
+    },
+    "executionRoleArn": {
+      "$id": "#/properties/executionRoleArn",
+      "type": "string"
+    },
+    "containerDefinitions": {
+      "$id": "#/properties/containerDefinitions",
+      "type": "array",
+      "items": {
+        "$id": "#/properties/containerDefinitions/items",
+        "type": "object",
+        "properties": {
+          "dnsSearchDomains": {
+            "$id": "#/properties/containerDefinitions/items/properties/dnsSearchDomains"
+          },
+          "logConfiguration": {
+            "$id": "#/properties/containerDefinitions/items/properties/logConfiguration",
+            "type": "object",
+            "properties": {
+              "logDriver": {
+                "$id": "#/properties/containerDefinitions/items/properties/logConfiguration/properties/logDriver",
+                "type": "string"
+              },
+              "secretOptions": {
+                "$id": "#/properties/containerDefinitions/items/properties/logConfiguration/properties/secretOptions"
+              },
+              "options": {
+                "$id": "#/properties/containerDefinitions/items/properties/logConfiguration/properties/options",
+                "type": "object",
+                "properties": {
+                  "awslogs-group": {
+                    "$id": "#/properties/containerDefinitions/items/properties/logConfiguration/properties/options/properties/awslogs-group",
+                    "type": "string"
+                  },
+                  "awslogs-region": {
+                    "$id": "#/properties/containerDefinitions/items/properties/logConfiguration/properties/options/properties/awslogs-region",
+                    "type": "string"
+                  },
+                  "awslogs-stream-prefix": {
+                    "$id": "#/properties/containerDefinitions/items/properties/logConfiguration/properties/options/properties/awslogs-stream-prefix",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "entryPoint": {
+            "$id": "#/properties/containerDefinitions/items/properties/entryPoint"
+          },
+          "portMappings": {
+            "$id": "#/properties/containerDefinitions/items/properties/portMappings",
+            "type": "array",
+            "items": {
+              "$id": "#/properties/containerDefinitions/items/properties/portMappings/items",
+              "type": "object",
+              "properties": {
+                "hostPort": {
+                  "$id": "#/properties/containerDefinitions/items/properties/portMappings/items/properties/hostPort",
+                  "type": "integer"
+                },
+                "protocol": {
+                  "$id": "#/properties/containerDefinitions/items/properties/portMappings/items/properties/protocol",
+                  "type": "string"
+                },
+                "containerPort": {
+                  "$id": "#/properties/containerDefinitions/items/properties/portMappings/items/properties/containerPort",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "command": {
+            "$id": "#/properties/containerDefinitions/items/properties/command"
+          },
+          "linuxParameters": {
+            "$id": "#/properties/containerDefinitions/items/properties/linuxParameters"
+          },
+          "cpu": {
+            "$id": "#/properties/containerDefinitions/items/properties/cpu",
+            "type": "integer"
+          },
+          "environment": {
+            "$id": "#/properties/containerDefinitions/items/properties/environment",
+            "type": "array"
+          },
+          "resourceRequirements": {
+            "$id": "#/properties/containerDefinitions/items/properties/resourceRequirements"
+          },
+          "ulimits": {
+            "$id": "#/properties/containerDefinitions/items/properties/ulimits"
+          },
+          "dnsServers": {
+            "$id": "#/properties/containerDefinitions/items/properties/dnsServers"
+          },
+          "mountPoints": {
+            "$id": "#/properties/containerDefinitions/items/properties/mountPoints",
+            "type": "array"
+          },
+          "workingDirectory": {
+            "$id": "#/properties/containerDefinitions/items/properties/workingDirectory"
+          },
+          "secrets": {
+            "$id": "#/properties/containerDefinitions/items/properties/secrets"
+          },
+          "dockerSecurityOptions": {
+            "$id": "#/properties/containerDefinitions/items/properties/dockerSecurityOptions"
+          },
+          "memory": {
+            "$id": "#/properties/containerDefinitions/items/properties/memory"
+          },
+          "memoryReservation": {
+            "$id": "#/properties/containerDefinitions/items/properties/memoryReservation",
+            "type": "integer"
+          },
+          "volumesFrom": {
+            "$id": "#/properties/containerDefinitions/items/properties/volumesFrom",
+            "type": "array",
+            "items": {
+              "$id": "#/properties/containerDefinitions/items/properties/volumesFrom/items",
+              "type": "object",
+              "properties": {
+                "sourceContainer": {
+                  "$id": "#/properties/containerDefinitions/items/properties/volumesFrom/items/properties/sourceContainer",
+                  "type": "string"
+                },
+                "readOnly": {
+                  "$id": "#/properties/containerDefinitions/items/properties/volumesFrom/items/properties/readOnly",
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "stopTimeout": {
+            "$id": "#/properties/containerDefinitions/items/properties/stopTimeout"
+          },
+          "image": {
+            "$id": "#/properties/containerDefinitions/items/properties/image",
+            "type": "string"
+          },
+          "startTimeout": {
+            "$id": "#/properties/containerDefinitions/items/properties/startTimeout"
+          },
+          "firelensConfiguration": {
+            "$id": "#/properties/containerDefinitions/items/properties/firelensConfiguration"
+          },
+          "dependsOn": {
+            "$id": "#/properties/containerDefinitions/items/properties/dependsOn"
+          },
+          "disableNetworking": {
+            "$id": "#/properties/containerDefinitions/items/properties/disableNetworking"
+          },
+          "interactive": {
+            "$id": "#/properties/containerDefinitions/items/properties/interactive"
+          },
+          "healthCheck": {
+            "$id": "#/properties/containerDefinitions/items/properties/healthCheck",
+            "type": "object",
+            "properties": {
+              "retries": {
+                "$id": "#/properties/containerDefinitions/items/properties/healthCheck/properties/retries",
+                "type": "integer"
+              },
+              "command": {
+                "$id": "#/properties/containerDefinitions/items/properties/healthCheck/properties/command",
+                "type": "array",
+                "items": {
+                  "$id": "#/properties/containerDefinitions/items/properties/healthCheck/properties/command/items",
+                  "type": "string"
+                }
+              },
+              "timeout": {
+                "$id": "#/properties/containerDefinitions/items/properties/healthCheck/properties/timeout",
+                "type": "integer"
+              },
+              "interval": {
+                "$id": "#/properties/containerDefinitions/items/properties/healthCheck/properties/interval",
+                "type": "integer"
+              },
+              "startPeriod": {
+                "$id": "#/properties/containerDefinitions/items/properties/healthCheck/properties/startPeriod",
+                "type": "integer"
+              }
+            }
+          },
+          "essential": {
+            "$id": "#/properties/containerDefinitions/items/properties/essential",
+            "type": "boolean"
+          },
+          "links": {
+            "$id": "#/properties/containerDefinitions/items/properties/links",
+            "type": "array",
+            "items": {
+              "$id": "#/properties/containerDefinitions/items/properties/links/items",
+              "type": "string"
+            }
+          },
+          "hostname": {
+            "$id": "#/properties/containerDefinitions/items/properties/hostname"
+          },
+          "extraHosts": {
+            "$id": "#/properties/containerDefinitions/items/properties/extraHosts"
+          },
+          "pseudoTerminal": {
+            "$id": "#/properties/containerDefinitions/items/properties/pseudoTerminal"
+          },
+          "user": {
+            "$id": "#/properties/containerDefinitions/items/properties/user"
+          },
+          "readonlyRootFilesystem": {
+            "$id": "#/properties/containerDefinitions/items/properties/readonlyRootFilesystem"
+          },
+          "dockerLabels": {
+            "$id": "#/properties/containerDefinitions/items/properties/dockerLabels"
+          },
+          "systemControls": {
+            "$id": "#/properties/containerDefinitions/items/properties/systemControls"
+          },
+          "privileged": {
+            "$id": "#/properties/containerDefinitions/items/properties/privileged"
+          },
+          "name": {
+            "$id": "#/properties/containerDefinitions/items/properties/name",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "placementConstraints": {
+      "$id": "#/properties/placementConstraints",
+      "type": "array"
+    },
+    "memory": {
+      "$id": "#/properties/memory"
+    },
+    "taskRoleArn": {
+      "$id": "#/properties/taskRoleArn",
+      "type": "string"
+    },
+    "compatibilities": {
+      "$id": "#/properties/compatibilities",
+      "type": "array",
+      "items": {
+        "$id": "#/properties/compatibilities/items",
+        "type": "string"
+      }
+    },
+    "taskDefinitionArn": {
+      "$id": "#/properties/taskDefinitionArn",
+      "type": "string"
+    },
+    "family": {
+      "$id": "#/properties/family",
+      "type": "string"
+    },
+    "requiresAttributes": {
+      "$id": "#/properties/requiresAttributes",
+      "type": "array",
+      "items": {
+        "$id": "#/properties/requiresAttributes/items",
+        "type": "object",
+        "properties": {
+          "targetId": {
+            "$id": "#/properties/requiresAttributes/items/properties/targetId"
+          },
+          "targetType": {
+            "$id": "#/properties/requiresAttributes/items/properties/targetType"
+          },
+          "value": {
+            "$id": "#/properties/requiresAttributes/items/properties/value"
+          },
+          "name": {
+            "$id": "#/properties/requiresAttributes/items/properties/name",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pidMode": {
+      "$id": "#/properties/pidMode"
+    },
+    "requiresCompatibilities": {
+      "$id": "#/properties/requiresCompatibilities",
+      "type": "array",
+      "items": {
+        "$id": "#/properties/requiresCompatibilities/items",
+        "type": "string"
+      }
+    },
+    "networkMode": {
+      "$id": "#/properties/networkMode",
+      "type": "string"
+    },
+    "cpu": {
+      "$id": "#/properties/cpu",
+      "type": "string"
+    },
+    "revision": {
+      "$id": "#/properties/revision",
+      "type": "integer"
+    },
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string"
+    },
+    "inferenceAccelerators": {
+      "$id": "#/properties/inferenceAccelerators"
+    },
+    "proxyConfiguration": {
+      "$id": "#/properties/proxyConfiguration"
+    },
+    "volumes": {
+      "$id": "#/properties/volumes",
+      "type": "array",
+      "items": {
+        "$id": "#/properties/volumes/items",
+        "type": "object",
+        "properties": {
+          "efsVolumeConfiguration": {
+            "$id": "#/properties/volumes/items/properties/efsVolumeConfiguration"
+          },
+          "name": {
+            "$id": "#/properties/volumes/items/properties/name",
+            "type": "string"
+          },
+          "host": {
+            "$id": "#/properties/volumes/items/properties/host",
+            "type": "object",
+            "properties": {
+              "sourcePath": {
+                "$id": "#/properties/volumes/items/properties/host/properties/sourcePath",
+                "type": "string"
+              }
+            }
+          },
+          "dockerVolumeConfiguration": {
+            "$id": "#/properties/volumes/items/properties/dockerVolumeConfiguration"
+          }
+        }
+      }
+    }
+  }
+}

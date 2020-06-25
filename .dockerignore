@@ -1,6 +1,0 @@
-*ignore
-.git*
-*gradle*
-templates
-.idea
-*.log

@@ -1,7 +1,0 @@
-helmDefaults:
-  historyMax: 3
-
-releases:
-  - name: yamlschema
-    namespace: default
-    chart: .

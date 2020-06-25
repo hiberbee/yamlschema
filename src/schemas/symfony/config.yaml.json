@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://yamlschema.net/symfony/",
+  "$ref": "config.yaml.json",
+  "type": "object",
+  "title": "Symfony Config",
+  "anyOf": [
+    {
+      "$ref": "api-platform.json"
+    },
+    {
+      "$ref": "monolog.json"
+    },
+    {
+      "$ref": "framework.json"
+    },
+    {
+      "$ref": "doctrine.json"
+    },
+    {
+      "$ref": "security.json"
+    },
+    {
+      "$ref": "lexik-jwt-authentication.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "$ref": "https://raw.githubusercontent.com/Hiberbee/yamlschema/master/src/schemas/key-value.json"
+        }
+      }
+    }
+  ]
+}

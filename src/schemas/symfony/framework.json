@@ -1,0 +1,1306 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://yamlschema.net/symfony/",
+  "$ref": "framework.json",
+  "type": "object",
+  "properties": {
+    "framework": {
+      "$id": "#/properties/framework",
+      "type": "object",
+      "properties": {
+        "router": {
+          "$id": "#/properties/framework/properties/router",
+          "type": "object",
+          "properties": {
+            "resource": {
+              "$id": "#/properties/framework/properties/router/properties/resource",
+              "type": "string",
+              "examples": [
+                "kernel::loadRoutes"
+              ]
+            },
+            "type": {
+              "$id": "#/properties/framework/properties/router/properties/type",
+              "type": "string",
+              "examples": [
+                "service"
+              ]
+            },
+            "enabled": {
+              "$id": "#/properties/framework/properties/router/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "utf8": {
+              "$id": "#/properties/framework/properties/router/properties/utf8",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "http_port": {
+              "$id": "#/properties/framework/properties/router/properties/http_port",
+              "type": "integer",
+              "examples": [
+                80
+              ]
+            },
+            "https_port": {
+              "$id": "#/properties/framework/properties/router/properties/https_port",
+              "type": "integer",
+              "examples": [
+                443
+              ]
+            },
+            "strict_requirements": {
+              "$id": "#/properties/framework/properties/router/properties/strict_requirements",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "profiler": {
+          "$id": "#/properties/framework/properties/profiler",
+          "type": "object",
+          "examples": [
+            {
+              "only_master_requests": false,
+              "collect": true,
+              "enabled": true,
+              "dsn": "file:%kernel.cache_dir%/profiler",
+              "only_exceptions": false
+            }
+          ],
+          "properties": {
+            "only_exceptions": {
+              "$id": "#/properties/framework/properties/profiler/properties/only_exceptions",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "enabled": {
+              "$id": "#/properties/framework/properties/profiler/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "collect": {
+              "$id": "#/properties/framework/properties/profiler/properties/collect",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "only_master_requests": {
+              "$id": "#/properties/framework/properties/profiler/properties/only_master_requests",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "dsn": {
+              "$id": "#/properties/framework/properties/profiler/properties/dsn",
+              "type": "string",
+              "examples": [
+                "file:%kernel.cache_dir%/profiler"
+              ]
+            }
+          }
+        },
+        "cache": {
+          "$id": "#/properties/framework/properties/cache",
+          "type": "object",
+          "examples": [
+            {
+              "directory": "%kernel.cache_dir%/pools",
+              "default_pdo_provider": "database_connection",
+              "prefix_seed": "pipingrock/authenticator",
+              "pools": {},
+              "app": "cache.adapter.apcu",
+              "default_redis_provider": "redis://localhost",
+              "system": "cache.adapter.apcu",
+              "default_memcached_provider": "memcached://localhost"
+            }
+          ],
+          "properties": {
+            "prefix_seed": {
+              "$id": "#/properties/framework/properties/cache/properties/prefix_seed",
+              "type": "string",
+              "examples": [
+                "pipingrock/authenticator"
+              ]
+            },
+            "app": {
+              "$id": "#/properties/framework/properties/cache/properties/app",
+              "type": "string",
+              "examples": [
+                "cache.adapter.apcu"
+              ]
+            },
+            "system": {
+              "$id": "#/properties/framework/properties/cache/properties/system",
+              "type": "string",
+              "examples": [
+                "cache.adapter.apcu"
+              ]
+            },
+            "directory": {
+              "$id": "#/properties/framework/properties/cache/properties/directory",
+              "type": "string",
+              "examples": [
+                "%kernel.cache_dir%/pools"
+              ]
+            },
+            "default_redis_provider": {
+              "$id": "#/properties/framework/properties/cache/properties/default_redis_provider",
+              "type": "string",
+              "examples": [
+                "redis://localhost"
+              ]
+            },
+            "default_memcached_provider": {
+              "$id": "#/properties/framework/properties/cache/properties/default_memcached_provider",
+              "type": "string",
+              "examples": [
+                "memcached://localhost"
+              ]
+            },
+            "default_pdo_provider": {
+              "$id": "#/properties/framework/properties/cache/properties/default_pdo_provider",
+              "type": "string",
+              "examples": [
+                "database_connection"
+              ]
+            },
+            "pools": {
+              "$id": "#/properties/framework/properties/cache/properties/pools",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            }
+          }
+        },
+        "secret": {
+          "$id": "#/properties/framework/properties/secret",
+          "type": "string",
+          "examples": [
+            "%env(APP_SECRET)%"
+          ]
+        },
+        "validation": {
+          "$id": "#/properties/framework/properties/validation",
+          "type": "object",
+          "examples": [
+            {
+              "translation_domain": "validators",
+              "enabled": false,
+              "auto_mapping": {},
+              "mapping": {
+                "paths": {}
+              },
+              "static_method": [
+                "loadValidatorMetadata"
+              ],
+              "enable_annotations": true,
+              "not_compromised_password": {
+                "enabled": true,
+                "endpoint": null
+              }
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/validation/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "enable_annotations": {
+              "$id": "#/properties/framework/properties/validation/properties/enable_annotations",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "static_method": {
+              "$id": "#/properties/framework/properties/validation/properties/static_method",
+              "type": "array",
+              "items": {
+                "$id": "#/properties/framework/properties/validation/properties/static_method/items",
+                "type": "string",
+                "examples": [
+                  "loadValidatorMetadata"
+                ]
+              }
+            },
+            "translation_domain": {
+              "$id": "#/properties/framework/properties/validation/properties/translation_domain",
+              "type": "string",
+              "examples": [
+                "validators"
+              ]
+            },
+            "mapping": {
+              "$id": "#/properties/framework/properties/validation/properties/mapping",
+              "type": "object",
+              "examples": [
+                {
+                  "paths": {}
+                }
+              ],
+              "properties": {
+                "paths": {
+                  "$id": "#/properties/framework/properties/validation/properties/mapping/properties/paths",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                }
+              }
+            },
+            "not_compromised_password": {
+              "$id": "#/properties/framework/properties/validation/properties/not_compromised_password",
+              "type": "object",
+              "examples": [
+                {
+                  "enabled": true,
+                  "endpoint": null
+                }
+              ],
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/framework/properties/validation/properties/not_compromised_password/properties/enabled",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "endpoint": {
+                  "$id": "#/properties/framework/properties/validation/properties/not_compromised_password/properties/endpoint",
+                  "examples": [
+                    null
+                  ]
+                }
+              }
+            },
+            "auto_mapping": {
+              "$id": "#/properties/framework/properties/validation/properties/auto_mapping",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            }
+          }
+        },
+        "session": {
+          "$id": "#/properties/framework/properties/session",
+          "type": "object",
+          "examples": [
+            {
+              "cookie_domain": "%env(COOKIE_DOMAIN)%",
+              "handler_id": "session.handler.memcached",
+              "enabled": true,
+              "metadata_update_threshold": 0.0,
+              "cookie_secure": "auto",
+              "storage_id": "session.storage.native",
+              "gc_probability": null,
+              "cookie_httponly": true,
+              "save_path": "%kernel.cache_dir%/sessions",
+              "cookie_samesite": "lax"
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/session/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "gc_probability": {
+              "$id": "#/properties/framework/properties/session/properties/gc_probability",
+              "examples": [
+                null
+              ]
+            },
+            "cookie_secure": {
+              "$id": "#/properties/framework/properties/session/properties/cookie_secure",
+              "type": "string",
+              "examples": [
+                "auto"
+              ]
+            },
+            "cookie_samesite": {
+              "$id": "#/properties/framework/properties/session/properties/cookie_samesite",
+              "type": "string",
+              "examples": [
+                "lax"
+              ]
+            },
+            "cookie_domain": {
+              "$id": "#/properties/framework/properties/session/properties/cookie_domain",
+              "type": "string",
+              "examples": [
+                "%env(COOKIE_DOMAIN)%"
+              ]
+            },
+            "handler_id": {
+              "$id": "#/properties/framework/properties/session/properties/handler_id",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "storage_id": {
+              "$id": "#/properties/framework/properties/session/properties/storage_id",
+              "type": "string",
+              "examples": [
+                "session.storage.native"
+              ]
+            },
+            "cookie_httponly": {
+              "$id": "#/properties/framework/properties/session/properties/cookie_httponly",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "save_path": {
+              "$id": "#/properties/framework/properties/session/properties/save_path",
+              "type": "string",
+              "examples": [
+                "%kernel.cache_dir%/sessions"
+              ]
+            },
+            "metadata_update_threshold": {
+              "$id": "#/properties/framework/properties/session/properties/metadata_update_threshold",
+              "type": "integer",
+              "examples": [
+                0
+              ]
+            }
+          }
+        },
+        "php_errors": {
+          "$id": "#/properties/framework/properties/php_errors",
+          "type": "object",
+          "examples": [
+            {
+              "log": true,
+              "throw": true
+            }
+          ],
+          "properties": {
+            "log": {
+              "$id": "#/properties/framework/properties/php_errors/properties/log",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "throw": {
+              "$id": "#/properties/framework/properties/php_errors/properties/throw",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            }
+          }
+        },
+        "ide": {
+          "$id": "#/properties/framework/properties/ide",
+          "type": "string",
+          "examples": [
+            "phpstorm://open?url=file://%%f&line=%%l"
+          ]
+        },
+        "http_method_override": {
+          "$id": "#/properties/framework/properties/http_method_override",
+          "type": "boolean",
+          "examples": [
+            true
+          ]
+        },
+        "default_locale": {
+          "$id": "#/properties/framework/properties/default_locale",
+          "type": "string",
+          "examples": [
+            "en"
+          ]
+        },
+        "trusted_hosts": {
+          "$id": "#/properties/framework/properties/trusted_hosts",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "error_controller": {
+          "$id": "#/properties/framework/properties/error_controller",
+          "type": "string",
+          "examples": [
+            "error_controller"
+          ]
+        },
+        "csrf_protection": {
+          "$id": "#/properties/framework/properties/csrf_protection",
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/framework/properties/csrf_protection/properties/enabled",
+                  "examples": [
+                    null
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "form": {
+          "$id": "#/properties/framework/properties/form",
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "properties": {
+                "enabled": {
+                  "$id": "#/properties/framework/properties/form/properties/enabled",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "csrf_protection": {
+                  "$id": "#/properties/framework/properties/form/properties/csrf_protection",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "field_name": "_token",
+                      "enabled": null
+                    }
+                  ],
+                  "properties": {
+                    "enabled": {
+                      "$id": "#/properties/framework/properties/form/properties/csrf_protection/properties/enabled",
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "field_name": {
+                      "$id": "#/properties/framework/properties/form/properties/csrf_protection/properties/field_name",
+                      "type": "string",
+                      "examples": [
+                        "_token"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "esi": {
+          "$id": "#/properties/framework/properties/esi",
+          "type": "object",
+          "examples": [
+            {
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/esi/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            }
+          }
+        },
+        "ssi": {
+          "$id": "#/properties/framework/properties/ssi",
+          "type": "object",
+          "examples": [
+            {
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/ssi/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            }
+          }
+        },
+        "fragments": {
+          "$id": "#/properties/framework/properties/fragments",
+          "type": "object",
+          "examples": [
+            {
+              "hinclude_default_template": null,
+              "path": "/_fragment",
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/fragments/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "hinclude_default_template": {
+              "$id": "#/properties/framework/properties/fragments/properties/hinclude_default_template",
+              "examples": [
+                null
+              ]
+            },
+            "path": {
+              "$id": "#/properties/framework/properties/fragments/properties/path",
+              "type": "string",
+              "examples": [
+                "/_fragment"
+              ]
+            }
+          }
+        },
+        "workflows": {
+          "$id": "#/properties/framework/properties/workflows",
+          "type": "object",
+          "examples": [
+            {
+              "enabled": false,
+              "workflows": {}
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/workflows/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "workflows": {
+              "$id": "#/properties/framework/properties/workflows/properties/workflows",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            }
+          }
+        },
+        "request": {
+          "$id": "#/properties/framework/properties/request",
+          "type": "object",
+          "examples": [
+            {
+              "formats": {},
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/request/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "formats": {
+              "$id": "#/properties/framework/properties/request/properties/formats",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            }
+          }
+        },
+        "assets": {
+          "$id": "#/properties/framework/properties/assets",
+          "type": "object",
+          "examples": [
+            {
+              "packages": {},
+              "version_strategy": null,
+              "json_manifest_path": null,
+              "version": null,
+              "base_urls": {},
+              "version_format": "%%s?%%s",
+              "base_path": "",
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/assets/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "version_strategy": {
+              "$id": "#/properties/framework/properties/assets/properties/version_strategy",
+              "examples": [
+                null
+              ]
+            },
+            "version": {
+              "$id": "#/properties/framework/properties/assets/properties/version",
+              "examples": [
+                null
+              ]
+            },
+            "version_format": {
+              "$id": "#/properties/framework/properties/assets/properties/version_format",
+              "type": "string",
+              "examples": [
+                "%%s?%%s"
+              ]
+            },
+            "json_manifest_path": {
+              "$id": "#/properties/framework/properties/assets/properties/json_manifest_path",
+              "examples": [
+                null
+              ]
+            },
+            "base_path": {
+              "$id": "#/properties/framework/properties/assets/properties/base_path",
+              "type": "string",
+              "examples": [
+                ""
+              ]
+            },
+            "base_urls": {
+              "$id": "#/properties/framework/properties/assets/properties/base_urls",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            },
+            "packages": {
+              "$id": "#/properties/framework/properties/assets/properties/packages",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            }
+          }
+        },
+        "translator": {
+          "$id": "#/properties/framework/properties/translator",
+          "type": "object",
+          "examples": [
+            {
+              "paths": {},
+              "cache_dir": "%kernel.cache_dir%/translations",
+              "fallbacks": {},
+              "formatter": "translator.formatter.default",
+              "default_path": "%kernel.project_dir%/translations",
+              "logging": false,
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/translator/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "fallbacks": {
+              "$id": "#/properties/framework/properties/translator/properties/fallbacks",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            },
+            "logging": {
+              "$id": "#/properties/framework/properties/translator/properties/logging",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "formatter": {
+              "$id": "#/properties/framework/properties/translator/properties/formatter",
+              "type": "string",
+              "examples": [
+                "translator.formatter.default"
+              ]
+            },
+            "cache_dir": {
+              "$id": "#/properties/framework/properties/translator/properties/cache_dir",
+              "type": "string",
+              "examples": [
+                "%kernel.cache_dir%/translations"
+              ]
+            },
+            "default_path": {
+              "$id": "#/properties/framework/properties/translator/properties/default_path",
+              "type": "string",
+              "examples": [
+                "%kernel.project_dir%/translations"
+              ]
+            },
+            "paths": {
+              "$id": "#/properties/framework/properties/translator/properties/paths",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "annotations": {
+          "$id": "#/properties/framework/properties/annotations",
+          "type": "object",
+          "examples": [
+            {
+              "cache": "php_array",
+              "file_cache_dir": "%kernel.cache_dir%/annotations",
+              "enabled": true,
+              "debug": true
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/annotations/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "cache": {
+              "$id": "#/properties/framework/properties/annotations/properties/cache",
+              "type": "string",
+              "examples": [
+                "php_array"
+              ]
+            },
+            "file_cache_dir": {
+              "$id": "#/properties/framework/properties/annotations/properties/file_cache_dir",
+              "type": "string",
+              "examples": [
+                "%kernel.cache_dir%/annotations"
+              ]
+            },
+            "debug": {
+              "$id": "#/properties/framework/properties/annotations/properties/debug",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            }
+          }
+        },
+        "serializer": {
+          "$id": "#/properties/framework/properties/serializer",
+          "type": "object",
+          "examples": [
+            {
+              "enable_annotations": true,
+              "enabled": false,
+              "mapping": {
+                "paths": {}
+              }
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/serializer/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "enable_annotations": {
+              "$id": "#/properties/framework/properties/serializer/properties/enable_annotations",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "mapping": {
+              "$id": "#/properties/framework/properties/serializer/properties/mapping",
+              "type": "object",
+              "examples": [
+                {
+                  "paths": {}
+                }
+              ],
+              "properties": {
+                "paths": {
+                  "$id": "#/properties/framework/properties/serializer/properties/mapping/properties/paths",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "property_access": {
+          "$id": "#/properties/framework/properties/property_access",
+          "type": "object",
+          "examples": [
+            {
+              "throw_exception_on_invalid_index": false,
+              "magic_call": false,
+              "throw_exception_on_invalid_property_path": true
+            }
+          ],
+          "properties": {
+            "magic_call": {
+              "$id": "#/properties/framework/properties/property_access/properties/magic_call",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "throw_exception_on_invalid_index": {
+              "$id": "#/properties/framework/properties/property_access/properties/throw_exception_on_invalid_index",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "throw_exception_on_invalid_property_path": {
+              "$id": "#/properties/framework/properties/property_access/properties/throw_exception_on_invalid_property_path",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            }
+          }
+        },
+        "property_info": {
+          "$id": "#/properties/framework/properties/property_info",
+          "type": "object",
+          "examples": [
+            {
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/property_info/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            }
+          }
+        },
+        "web_link": {
+          "$id": "#/properties/framework/properties/web_link",
+          "type": "object",
+          "examples": [
+            {
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/web_link/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            }
+          }
+        },
+        "lock": {
+          "$id": "#/properties/framework/properties/lock",
+          "type": "object",
+          "examples": [
+            {
+              "enabled": false,
+              "resources": {
+                "default": [
+                  "flock"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/lock/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "resources": {
+              "$id": "#/properties/framework/properties/lock/properties/resources",
+              "type": "object",
+              "examples": [
+                {
+                  "default": [
+                    "flock"
+                  ]
+                }
+              ],
+              "properties": {
+                "default": {
+                  "$id": "#/properties/framework/properties/lock/properties/resources/properties/default",
+                  "type": "array",
+                  "items": {
+                    "$id": "#/properties/framework/properties/lock/properties/resources/properties/default/items",
+                    "type": "string",
+                    "examples": [
+                      "flock"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "messenger": {
+          "$id": "#/properties/framework/properties/messenger",
+          "type": "object",
+          "examples": [
+            {
+              "serializer": {
+                "default_serializer": "messenger.transport.native_php_serializer",
+                "symfony_serializer": {
+                  "format": "json",
+                  "context": {}
+                }
+              },
+              "buses": {
+                "messenger.bus.default": {
+                  "default_middleware": true,
+                  "middleware": {}
+                }
+              },
+              "failure_transport": null,
+              "transports": {},
+              "default_bus": null,
+              "routing": {},
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/messenger/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "routing": {
+              "$id": "#/properties/framework/properties/messenger/properties/routing",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            },
+            "serializer": {
+              "$id": "#/properties/framework/properties/messenger/properties/serializer",
+              "type": "object",
+              "examples": [
+                {
+                  "symfony_serializer": {
+                    "format": "json",
+                    "context": {}
+                  },
+                  "default_serializer": "messenger.transport.native_php_serializer"
+                }
+              ],
+              "properties": {
+                "default_serializer": {
+                  "$id": "#/properties/framework/properties/messenger/properties/serializer/properties/default_serializer",
+                  "type": "string",
+                  "examples": [
+                    "messenger.transport.native_php_serializer"
+                  ]
+                },
+                "symfony_serializer": {
+                  "$id": "#/properties/framework/properties/messenger/properties/serializer/properties/symfony_serializer",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "format": "json",
+                      "context": {}
+                    }
+                  ],
+                  "properties": {
+                    "format": {
+                      "$id": "#/properties/framework/properties/messenger/properties/serializer/properties/symfony_serializer/properties/format",
+                      "type": "string",
+                      "examples": [
+                        "json"
+                      ]
+                    },
+                    "context": {
+                      "$id": "#/properties/framework/properties/messenger/properties/serializer/properties/symfony_serializer/properties/context",
+                      "type": "object",
+                      "examples": [
+                        {}
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "transports": {
+              "$id": "#/properties/framework/properties/messenger/properties/transports",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            },
+            "failure_transport": {
+              "$id": "#/properties/framework/properties/messenger/properties/failure_transport",
+              "examples": [
+                null
+              ]
+            },
+            "default_bus": {
+              "$id": "#/properties/framework/properties/messenger/properties/default_bus",
+              "examples": [
+                null
+              ]
+            },
+            "buses": {
+              "$id": "#/properties/framework/properties/messenger/properties/buses",
+              "type": "object",
+              "examples": [
+                {
+                  "messenger.bus.default": {
+                    "default_middleware": true,
+                    "middleware": {}
+                  }
+                }
+              ],
+              "properties": {
+                "messenger.bus.default": {
+                  "$id": "#/properties/framework/properties/messenger/properties/buses/properties/messenger.bus.default",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "default_middleware": true,
+                      "middleware": {}
+                    }
+                  ],
+                  "properties": {
+                    "default_middleware": {
+                      "$id": "#/properties/framework/properties/messenger/properties/buses/properties/messenger.bus.default/properties/default_middleware",
+                      "type": "boolean",
+                      "examples": [
+                        true
+                      ]
+                    },
+                    "middleware": {
+                      "$id": "#/properties/framework/properties/messenger/properties/buses/properties/messenger.bus.default/properties/middleware",
+                      "type": "object",
+                      "examples": [
+                        {}
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "disallow_search_engine_index": {
+          "$id": "#/properties/framework/properties/disallow_search_engine_index",
+          "type": "boolean",
+          "examples": [
+            true
+          ]
+        },
+        "http_client": {
+          "$id": "#/properties/framework/properties/http_client",
+          "type": "object",
+          "examples": [
+            {
+              "scoped_clients": {},
+              "enabled": true
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/http_client/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "scoped_clients": {
+              "$id": "#/properties/framework/properties/http_client/properties/scoped_clients",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            }
+          }
+        },
+        "mailer": {
+          "$id": "#/properties/framework/properties/mailer",
+          "type": "object",
+          "examples": [
+            {
+              "dsn": null,
+              "transports": {},
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/mailer/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "dsn": {
+              "$id": "#/properties/framework/properties/mailer/properties/dsn",
+              "examples": [
+                null
+              ]
+            },
+            "transports": {
+              "$id": "#/properties/framework/properties/mailer/properties/transports",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            }
+          }
+        },
+        "secrets": {
+          "$id": "#/properties/framework/properties/secrets",
+          "type": "object",
+          "examples": [
+            {
+              "enabled": true,
+              "vault_directory": "%kernel.project_dir%/config/secrets/%kernel.environment%",
+              "decryption_env_var": "base64:default::SYMFONY_DECRYPTION_SECRET",
+              "local_dotenv_file": "%kernel.project_dir%/.env.%kernel.environment%.local"
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/secrets/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            },
+            "vault_directory": {
+              "$id": "#/properties/framework/properties/secrets/properties/vault_directory",
+              "type": "string",
+              "examples": [
+                "%kernel.project_dir%/config/secrets/%kernel.environment%"
+              ]
+            },
+            "local_dotenv_file": {
+              "$id": "#/properties/framework/properties/secrets/properties/local_dotenv_file",
+              "type": "string",
+              "examples": [
+                "%kernel.project_dir%/.env.%kernel.environment%.local"
+              ]
+            },
+            "decryption_env_var": {
+              "$id": "#/properties/framework/properties/secrets/properties/decryption_env_var",
+              "type": "string",
+              "examples": [
+                "base64:default::SYMFONY_DECRYPTION_SECRET"
+              ]
+            }
+          }
+        },
+        "notifier": {
+          "$id": "#/properties/framework/properties/notifier",
+          "type": "object",
+          "examples": [
+            {
+              "admin_recipients": {},
+              "chatter_transports": {},
+              "notification_on_failed_messages": false,
+              "texter_transports": {},
+              "channel_policy": {},
+              "enabled": false
+            }
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/framework/properties/notifier/properties/enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "chatter_transports": {
+              "$id": "#/properties/framework/properties/notifier/properties/chatter_transports",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            },
+            "texter_transports": {
+              "$id": "#/properties/framework/properties/notifier/properties/texter_transports",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            },
+            "notification_on_failed_messages": {
+              "$id": "#/properties/framework/properties/notifier/properties/notification_on_failed_messages",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "channel_policy": {
+              "$id": "#/properties/framework/properties/notifier/properties/channel_policy",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            },
+            "admin_recipients": {
+              "$id": "#/properties/framework/properties/notifier/properties/admin_recipients",
+              "type": "object",
+              "examples": [
+                {}
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

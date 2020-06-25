@@ -16,6 +16,19 @@
       },
       {
         "type": "integer"
+      },
+      {
+        "type": "null"
+      },
+      {
+        "type": "object",
+        "$ref": "https://raw.githubusercontent.com/Hiberbee/yamlschema/master/src/schemas/key-value.json"
+      },
+      {
+        "type": "array",
+        "items": {
+          "$ref": "https://raw.githubusercontent.com/Hiberbee/yamlschema/master/src/schemas/key-value.json"
+        }
       }
     ]
   }

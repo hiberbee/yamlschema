@@ -1,5 +1,0 @@
-schemaVersion: 2.0.0
-
-metadataTest:
-  workdir: '/var/www/html'
-  exposedPorts: [8080]
