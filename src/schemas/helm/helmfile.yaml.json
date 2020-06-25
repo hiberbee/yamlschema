@@ -1,0 +1,310 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$ref": "helmfile.yaml.json",
+  "title": "Helmfile",
+  "description": "Helmfile YAML configuration schema",
+  "type": "object",
+  "properties": {
+    "apiVersions": {
+      "type": "array",
+      "items": {
+        "required": [],
+        "properties": {}
+      }
+    },
+    "bases": {
+      "type": "array",
+      "items": {
+        "properties": {},
+        "required": []
+      }
+    },
+    "environments": {
+      "type": "object",
+      "patternProperties": {
+        "[a-z0-9A-Z_]": {
+          "type": "object",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": {
+                "required": [],
+                "patternProperties": {
+                  "[a-z0-9A-Z_]": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "secrets": {
+              "type": "array"
+            },
+            "missingFileHandler": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "helmDefaults": {
+      "type": "object",
+      "properties": {
+        "tillerNamespace": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tillerless": {
+          "type": "boolean"
+        },
+        "kubeContext": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cleanupOnFail": {
+          "type": "boolean"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "required": [],
+            "properties": {}
+          }
+        },
+        "verify": {
+          "type": "boolean"
+        },
+        "wait": {
+          "type": "boolean"
+        },
+        "timeout": {
+          "type": "number"
+        },
+        "recreatePods": {
+          "type": "boolean"
+        },
+        "force": {
+          "type": "boolean"
+        },
+        "tls": {
+          "type": "boolean"
+        },
+        "tlsCACert": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tlsCert": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tlsKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "historyMax": {
+          "type": "number"
+        }
+      },
+      "required": [
+      ]
+    },
+    "helmfiles": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "selectors": {
+            "type": "array",
+            "items": {
+              "required": [],
+              "type": "string"
+            }
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "https://raw.githubusercontent.com/Hiberbee/yamlschema/master/src/schemas/key-value.json"
+            }
+          }
+        }
+      }
+    },
+    "releases": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "required": [
+          "name",
+          "chart"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-intellij-language-injection": {
+              "language": "GoTemplate"
+            }
+          },
+          "namespace": {
+            "x-intellij-language-injection": {
+              "language": "GoTemplate"
+            }
+          },
+          "labels": {
+            "type": "object",
+            "patternProperties": {
+              "[a-z=./]": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "chart": {
+            "type": "string",
+            "x-intellij-language-injection": {
+              "language": "File Reference"
+            }
+          },
+          "version": {
+            "type": "string"
+          },
+          "missingFileHandler": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "https://raw.githubusercontent.com/Hiberbee/yamlschema/master/src/schemas/key-value.json"
+            }
+          },
+          "set": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "required": [
+                "name",
+                "file"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "file": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "secrets": {
+            "type": "array",
+            "items": {
+              "required": [],
+              "properties": {}
+            }
+          },
+          "verify": {
+            "type": "boolean"
+          },
+          "wait": {
+            "type": "boolean"
+          },
+          "timeout": {
+            "type": "number"
+          },
+          "recreatePods": {
+            "type": "boolean"
+          },
+          "force": {
+            "type": "boolean"
+          },
+          "installed": {
+            "type": "boolean"
+          },
+          "atomic": {
+            "type": "boolean"
+          },
+          "cleanupOnFail": {
+            "type": "boolean"
+          },
+          "tillerNamespace": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tillerless": {
+            "type": "boolean"
+          },
+          "tls": {
+            "type": "boolean"
+          },
+          "tlsCACert": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tlsCert": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tlsKey": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kubeContext": {
+            "type": "string",
+            "minLength": 1
+          },
+          "historyMax": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "repositories": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "required": [
+          "name",
+          "url"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "certFile": {
+            "type": "string",
+            "minLength": 1
+          },
+          "keyFile": {
+            "type": "string",
+            "minLength": 1
+          },
+          "username": {
+            "type": "string",
+            "minLength": 1
+          },
+          "password": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

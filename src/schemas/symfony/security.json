@@ -1,0 +1,1096 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$ref": "security.json",
+  "type": "object",
+  "properties": {
+    "security": {
+      "$id": "#/properties/security",
+      "type": "object",
+      "examples": [
+        {
+          "session_fixation_strategy": "migrate",
+          "firewalls": {
+            "dev": {
+              "user_checker": "security.user_checker",
+              "security": false,
+              "methods": {},
+              "pattern": "^/(_(profiler|wdt|api|health)|fonts|css|json|images|js)/",
+              "stateless": false
+            },
+            "main": {
+              "http_basic": {
+                "realm": "Secured Area"
+              },
+              "user_checker": "security.user_checker",
+              "provider": "chain_provider",
+              "methods": {},
+              "anonymous": {
+                "lazy": false,
+                "secret": null
+              },
+              "json_login": {
+                "success_handler": "lexik_jwt_authentication.handler.authentication_success",
+                "use_forward": false,
+                "password_path": "password",
+                "check_path": "auth_token",
+                "username_path": "username",
+                "require_previous_session": false,
+                "remember_me": true,
+                "failure_handler": "lexik_jwt_authentication.handler.authentication_failure"
+              },
+              "guard": {
+                "authenticators": [
+                  "lexik_jwt_authentication.jwt_token_authenticator"
+                ],
+                "entry_point": null
+              },
+              "security": true,
+              "stateless": false,
+              "remember_me": {
+                "catch_exceptions": true,
+                "path": "/",
+                "name": "REMEMBERME",
+                "httponly": true,
+                "samesite": "lax",
+                "domain": null,
+                "secure": null,
+                "secret": "%env(APP_SECRET)%",
+                "lifetime": 31536000.0,
+                "always_remember_me": false,
+                "user_providers": {},
+                "remember_me_parameter": "_remember_me"
+              }
+            }
+          },
+          "providers": {
+            "applications": {
+              "memory": {
+                "users": {
+                  "pipingrock": {
+                    "password": "%env(APP_PASSWORD_HASH)%",
+                    "roles": [
+                      "ROLE_ASSOCIATE"
+                    ]
+                  }
+                }
+              }
+            },
+            "website_database": {
+              "entity": {
+                "property": "username",
+                "manager_name": null,
+                "class": "PipingRock\\Authenticator\\Entity\\User"
+              }
+            },
+            "chain_provider": {
+              "chain": {
+                "providers": [
+                  "website_database",
+                  "applications"
+                ]
+              }
+            }
+          },
+          "always_authenticate_before_granting": false,
+          "role_hierarchy": {},
+          "hide_user_not_found": true,
+          "encoders": {
+            "Symfony\\Component\\Security\\Core\\User\\User": {
+              "cost": null,
+              "iterations": 5000.0,
+              "ignore_case": false,
+              "time_cost": null,
+              "algorithm": "auto",
+              "encode_as_base64": true,
+              "hash_algorithm": "sha512",
+              "key_length": 40.0,
+              "memory_cost": null,
+              "migrate_from": {}
+            },
+            "PipingRock\\Authenticator\\Entity\\User": {
+              "migrate_from": {},
+              "cost": null,
+              "iterations": 1.0,
+              "ignore_case": false,
+              "algorithm": "sha512",
+              "time_cost": null,
+              "encode_as_base64": true,
+              "key_length": 40.0,
+              "hash_algorithm": "sha512",
+              "memory_cost": null
+            }
+          },
+          "access_denied_url": null,
+          "access_decision_manager": {
+            "allow_if_all_abstain": false,
+            "strategy": "affirmative",
+            "allow_if_equal_granted_denied": true
+          },
+          "erase_credentials": true,
+          "access_control": {}
+        }
+      ],
+      "properties": {
+        "encoders": {
+          "$id": "#/properties/security/properties/encoders",
+          "type": "object",
+          "examples": [
+            {
+              "Symfony\\Component\\Security\\Core\\User\\User": {
+                "key_length": 40.0,
+                "hash_algorithm": "sha512",
+                "memory_cost": null,
+                "migrate_from": {},
+                "cost": null,
+                "iterations": 5000.0,
+                "ignore_case": false,
+                "algorithm": "auto",
+                "time_cost": null,
+                "encode_as_base64": true
+              },
+              "PipingRock\\Authenticator\\Entity\\User": {
+                "time_cost": null,
+                "algorithm": "sha512",
+                "encode_as_base64": true,
+                "key_length": 40.0,
+                "hash_algorithm": "sha512",
+                "memory_cost": null,
+                "migrate_from": {},
+                "cost": null,
+                "iterations": 1.0,
+                "ignore_case": false
+              }
+            }
+          ],
+          "properties": {
+            "Symfony\\Component\\Security\\Core\\User\\User": {
+              "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User",
+              "type": "object",
+              "examples": [
+                {
+                  "encode_as_base64": true,
+                  "hash_algorithm": "sha512",
+                  "key_length": 40.0,
+                  "memory_cost": null,
+                  "migrate_from": {},
+                  "cost": null,
+                  "iterations": 5000.0,
+                  "ignore_case": false,
+                  "algorithm": "auto",
+                  "time_cost": null
+                }
+              ],
+              "properties": {
+                "algorithm": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/algorithm",
+                  "type": "string",
+                  "examples": [
+                    "auto"
+                  ]
+                },
+                "migrate_from": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/migrate_from",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "hash_algorithm": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/hash_algorithm",
+                  "type": "string",
+                  "examples": [
+                    "sha512"
+                  ]
+                },
+                "key_length": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/key_length",
+                  "type": "integer",
+                  "examples": [
+                    40
+                  ]
+                },
+                "ignore_case": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/ignore_case",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "encode_as_base64": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/encode_as_base64",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "iterations": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/iterations",
+                  "type": "integer",
+                  "examples": [
+                    5000
+                  ]
+                },
+                "cost": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/cost",
+                  "examples": [
+                    null
+                  ]
+                },
+                "memory_cost": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/memory_cost",
+                  "examples": [
+                    null
+                  ]
+                },
+                "time_cost": {
+                  "$id": "#/properties/security/properties/encoders/properties/Symfony\\Component\\Security\\Core\\User\\User/properties/time_cost",
+                  "examples": [
+                    null
+                  ]
+                }
+              }
+            },
+            "PipingRock\\Authenticator\\Entity\\User": {
+              "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User",
+              "type": "object",
+              "examples": [
+                {
+                  "ignore_case": false,
+                  "algorithm": "sha512",
+                  "time_cost": null,
+                  "encode_as_base64": true,
+                  "key_length": 40.0,
+                  "hash_algorithm": "sha512",
+                  "memory_cost": null,
+                  "migrate_from": {},
+                  "cost": null,
+                  "iterations": 1.0
+                }
+              ],
+              "properties": {
+                "algorithm": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/algorithm",
+                  "type": "string",
+                  "examples": [
+                    "sha512"
+                  ]
+                },
+                "encode_as_base64": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/encode_as_base64",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "iterations": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/iterations",
+                  "type": "integer",
+                  "examples": [
+                    1
+                  ]
+                },
+                "migrate_from": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/migrate_from",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "hash_algorithm": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/hash_algorithm",
+                  "type": "string",
+                  "examples": [
+                    "sha512"
+                  ]
+                },
+                "key_length": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/key_length",
+                  "type": "integer",
+                  "examples": [
+                    40
+                  ]
+                },
+                "ignore_case": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/ignore_case",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "cost": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/cost",
+                  "examples": [
+                    null
+                  ]
+                },
+                "memory_cost": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/memory_cost",
+                  "examples": [
+                    null
+                  ]
+                },
+                "time_cost": {
+                  "$id": "#/properties/security/properties/encoders/properties/PipingRock\\Authenticator\\Entity\\User/properties/time_cost",
+                  "examples": [
+                    null
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "providers": {
+          "$id": "#/properties/security/properties/providers",
+          "type": "object",
+          "examples": [
+            {
+              "applications": {
+                "memory": {
+                  "users": {
+                    "pipingrock": {
+                      "password": "%env(APP_PASSWORD_HASH)%",
+                      "roles": [
+                        "ROLE_ASSOCIATE"
+                      ]
+                    }
+                  }
+                }
+              },
+              "website_database": {
+                "entity": {
+                  "class": "PipingRock\\Authenticator\\Entity\\User",
+                  "property": "username",
+                  "manager_name": null
+                }
+              },
+              "chain_provider": {
+                "chain": {
+                  "providers": [
+                    "website_database",
+                    "applications"
+                  ]
+                }
+              }
+            }
+          ],
+          "properties": {
+            "applications": {
+              "$id": "#/properties/security/properties/providers/properties/applications",
+              "type": "object",
+              "examples": [
+                {
+                  "memory": {
+                    "users": {
+                      "pipingrock": {
+                        "password": "%env(APP_PASSWORD_HASH)%",
+                        "roles": [
+                          "ROLE_ASSOCIATE"
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "properties": {
+                "memory": {
+                  "$id": "#/properties/security/properties/providers/properties/applications/properties/memory",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "users": {
+                        "pipingrock": {
+                          "password": "%env(APP_PASSWORD_HASH)%",
+                          "roles": [
+                            "ROLE_ASSOCIATE"
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "users": {
+                      "$id": "#/properties/security/properties/providers/properties/applications/properties/memory/properties/users",
+                      "type": "object",
+                      "examples": [
+                        {
+                          "pipingrock": {
+                            "password": "%env(APP_PASSWORD_HASH)%",
+                            "roles": [
+                              "ROLE_ASSOCIATE"
+                            ]
+                          }
+                        }
+                      ],
+                      "properties": {
+                        "pipingrock": {
+                          "$id": "#/properties/security/properties/providers/properties/applications/properties/memory/properties/users/properties/pipingrock",
+                          "type": "object",
+                          "examples": [
+                            {
+                              "password": "%env(APP_PASSWORD_HASH)%",
+                              "roles": [
+                                "ROLE_ASSOCIATE"
+                              ]
+                            }
+                          ],
+                          "properties": {
+                            "password": {
+                              "$id": "#/properties/security/properties/providers/properties/applications/properties/memory/properties/users/properties/pipingrock/properties/password",
+                              "type": "string",
+                              "examples": [
+                                "%env(APP_PASSWORD_HASH)%"
+                              ]
+                            },
+                            "roles": {
+                              "$id": "#/properties/security/properties/providers/properties/applications/properties/memory/properties/users/properties/pipingrock/properties/roles",
+                              "type": "array",
+                              "items": {
+                                "$id": "#/properties/security/properties/providers/properties/applications/properties/memory/properties/users/properties/pipingrock/properties/roles/items",
+                                "type": "string",
+                                "examples": [
+                                  "ROLE_ASSOCIATE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "website_database": {
+              "$id": "#/properties/security/properties/providers/properties/website_database",
+              "type": "object",
+              "examples": [
+                {
+                  "entity": {
+                    "property": "username",
+                    "manager_name": null,
+                    "class": "PipingRock\\Authenticator\\Entity\\User"
+                  }
+                }
+              ],
+              "properties": {
+                "entity": {
+                  "$id": "#/properties/security/properties/providers/properties/website_database/properties/entity",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "manager_name": null,
+                      "class": "PipingRock\\Authenticator\\Entity\\User",
+                      "property": "username"
+                    }
+                  ],
+                  "properties": {
+                    "class": {
+                      "$id": "#/properties/security/properties/providers/properties/website_database/properties/entity/properties/class",
+                      "type": "string",
+                      "examples": [
+                        "PipingRock\\Authenticator\\Entity\\User"
+                      ]
+                    },
+                    "property": {
+                      "$id": "#/properties/security/properties/providers/properties/website_database/properties/entity/properties/property",
+                      "type": "string",
+                      "examples": [
+                        "username"
+                      ]
+                    },
+                    "manager_name": {
+                      "$id": "#/properties/security/properties/providers/properties/website_database/properties/entity/properties/manager_name",
+                      "examples": [
+                        null
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "chain_provider": {
+              "$id": "#/properties/security/properties/providers/properties/chain_provider",
+              "type": "object",
+              "examples": [
+                {
+                  "chain": {
+                    "providers": [
+                      "website_database",
+                      "applications"
+                    ]
+                  }
+                }
+              ],
+              "properties": {
+                "chain": {
+                  "$id": "#/properties/security/properties/providers/properties/chain_provider/properties/chain",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "providers": [
+                        "website_database",
+                        "applications"
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "providers": {
+                      "$id": "#/properties/security/properties/providers/properties/chain_provider/properties/chain/properties/providers",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/properties/security/properties/providers/properties/chain_provider/properties/chain/properties/providers/items",
+                        "type": "string",
+                        "examples": [
+                          "website_database",
+                          "applications"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "firewalls": {
+          "$id": "#/properties/security/properties/firewalls",
+          "type": "object",
+          "examples": [
+            {
+              "main": {
+                "guard": {
+                  "authenticators": [
+                    "lexik_jwt_authentication.jwt_token_authenticator"
+                  ],
+                  "entry_point": null
+                },
+                "security": true,
+                "stateless": false,
+                "remember_me": {
+                  "lifetime": 31536000.0,
+                  "always_remember_me": false,
+                  "remember_me_parameter": "_remember_me",
+                  "user_providers": {},
+                  "catch_exceptions": true,
+                  "name": "REMEMBERME",
+                  "path": "/",
+                  "httponly": true,
+                  "samesite": "lax",
+                  "domain": null,
+                  "secure": null,
+                  "secret": "%env(APP_SECRET)%"
+                },
+                "http_basic": {
+                  "realm": "Secured Area"
+                },
+                "provider": "chain_provider",
+                "user_checker": "security.user_checker",
+                "methods": {},
+                "anonymous": {
+                  "lazy": false,
+                  "secret": null
+                },
+                "json_login": {
+                  "password_path": "password",
+                  "check_path": "auth_token",
+                  "username_path": "username",
+                  "require_previous_session": false,
+                  "remember_me": true,
+                  "failure_handler": "lexik_jwt_authentication.handler.authentication_failure",
+                  "success_handler": "lexik_jwt_authentication.handler.authentication_success",
+                  "use_forward": false
+                }
+              },
+              "dev": {
+                "user_checker": "security.user_checker",
+                "security": false,
+                "methods": {},
+                "pattern": "^/(_(profiler|wdt|api|health)|fonts|css|json|images|js)/",
+                "stateless": false
+              }
+            }
+          ],
+          "properties": {
+            "dev": {
+              "$id": "#/properties/security/properties/firewalls/properties/dev",
+              "type": "object",
+              "examples": [
+                {
+                  "security": false,
+                  "methods": {},
+                  "pattern": "^/(_(profiler|wdt|api|health)|fonts|css|json|images|js)/",
+                  "stateless": false,
+                  "user_checker": "security.user_checker"
+                }
+              ],
+              "properties": {
+                "pattern": {
+                  "$id": "#/properties/security/properties/firewalls/properties/dev/properties/pattern",
+                  "type": "string",
+                  "examples": [
+                    "^/(_(profiler|wdt|api|health)|fonts|css|json|images|js)/"
+                  ]
+                },
+                "security": {
+                  "$id": "#/properties/security/properties/firewalls/properties/dev/properties/security",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "methods": {
+                  "$id": "#/properties/security/properties/firewalls/properties/dev/properties/methods",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "user_checker": {
+                  "$id": "#/properties/security/properties/firewalls/properties/dev/properties/user_checker",
+                  "type": "string",
+                  "examples": [
+                    "security.user_checker"
+                  ]
+                },
+                "stateless": {
+                  "$id": "#/properties/security/properties/firewalls/properties/dev/properties/stateless",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                }
+              }
+            },
+            "main": {
+              "$id": "#/properties/security/properties/firewalls/properties/main",
+              "type": "object",
+              "examples": [
+                {
+                  "guard": {
+                    "entry_point": null,
+                    "authenticators": [
+                      "lexik_jwt_authentication.jwt_token_authenticator"
+                    ]
+                  },
+                  "security": true,
+                  "stateless": false,
+                  "remember_me": {
+                    "name": "REMEMBERME",
+                    "path": "/",
+                    "httponly": true,
+                    "samesite": "lax",
+                    "domain": null,
+                    "secure": null,
+                    "secret": "%env(APP_SECRET)%",
+                    "lifetime": 31536000.0,
+                    "always_remember_me": false,
+                    "user_providers": {},
+                    "remember_me_parameter": "_remember_me",
+                    "catch_exceptions": true
+                  },
+                  "http_basic": {
+                    "realm": "Secured Area"
+                  },
+                  "user_checker": "security.user_checker",
+                  "provider": "chain_provider",
+                  "methods": {},
+                  "anonymous": {
+                    "lazy": false,
+                    "secret": null
+                  },
+                  "json_login": {
+                    "use_forward": false,
+                    "password_path": "password",
+                    "check_path": "auth_token",
+                    "username_path": "username",
+                    "require_previous_session": false,
+                    "remember_me": true,
+                    "failure_handler": "lexik_jwt_authentication.handler.authentication_failure",
+                    "success_handler": "lexik_jwt_authentication.handler.authentication_success"
+                  }
+                }
+              ],
+              "properties": {
+                "anonymous": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/anonymous",
+                  "oneOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "lazy"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "lazy": {
+                          "$id": "#/properties/security/properties/firewalls/properties/main/properties/anonymous/properties/lazy",
+                          "type": "boolean",
+                          "examples": [
+                            false
+                          ]
+                        },
+                        "secret": {
+                          "$id": "#/properties/security/properties/firewalls/properties/main/properties/anonymous/properties/secret",
+                          "examples": [
+                            null
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                "stateless": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/stateless",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                },
+                "remember_me": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "secure": null,
+                      "secret": "%env(APP_SECRET)%",
+                      "lifetime": 31536000.0,
+                      "always_remember_me": false,
+                      "remember_me_parameter": "_remember_me",
+                      "user_providers": {},
+                      "catch_exceptions": true,
+                      "name": "REMEMBERME",
+                      "path": "/",
+                      "httponly": true,
+                      "samesite": "lax",
+                      "domain": null
+                    }
+                  ],
+                  "properties": {
+                    "secret": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/secret",
+                      "type": "string",
+                      "examples": [
+                        "%env(APP_SECRET)%"
+                      ]
+                    },
+                    "user_providers": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/user_providers",
+                      "type": "object",
+                      "examples": [
+                        {}
+                      ]
+                    },
+                    "catch_exceptions": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/catch_exceptions",
+                      "type": "boolean",
+                      "examples": [
+                        true
+                      ]
+                    },
+                    "name": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/name",
+                      "type": "string",
+                      "examples": [
+                        "REMEMBERME"
+                      ]
+                    },
+                    "lifetime": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/lifetime",
+                      "type": "integer",
+                      "examples": [
+                        31536000
+                      ]
+                    },
+                    "path": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/path",
+                      "type": "string",
+                      "examples": [
+                        "/"
+                      ]
+                    },
+                    "domain": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/domain",
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "secure": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/secure",
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "httponly": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/httponly",
+                      "type": "boolean",
+                      "examples": [
+                        true
+                      ]
+                    },
+                    "samesite": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/samesite",
+                      "type": "string",
+                      "examples": [
+                        "lax"
+                      ]
+                    },
+                    "always_remember_me": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/always_remember_me",
+                      "type": "boolean",
+                      "examples": [
+                        false
+                      ]
+                    },
+                    "remember_me_parameter": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/remember_me/properties/remember_me_parameter",
+                      "type": "string",
+                      "examples": [
+                        "_remember_me"
+                      ]
+                    }
+                  }
+                },
+                "provider": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/provider",
+                  "type": "string",
+                  "examples": [
+                    "chain_provider"
+                  ]
+                },
+                "http_basic": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/http_basic",
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "realm": {
+                          "$id": "#/properties/security/properties/firewalls/properties/main/properties/http_basic/properties/realm",
+                          "type": "string",
+                          "examples": [
+                            "Secured Area"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "guard": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/guard",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "authenticators": [
+                        "lexik_jwt_authentication.jwt_token_authenticator"
+                      ],
+                      "entry_point": null
+                    }
+                  ],
+                  "properties": {
+                    "authenticators": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/guard/properties/authenticators",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/properties/security/properties/firewalls/properties/main/properties/guard/properties/authenticators/items",
+                        "type": "string",
+                        "examples": [
+                          "lexik_jwt_authentication.jwt_token_authenticator"
+                        ]
+                      }
+                    },
+                    "entry_point": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/guard/properties/entry_point",
+                      "examples": [
+                        null
+                      ]
+                    }
+                  }
+                },
+                "json_login": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/json_login",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "username_path": "username",
+                      "remember_me": true,
+                      "require_previous_session": false,
+                      "failure_handler": "lexik_jwt_authentication.handler.authentication_failure",
+                      "success_handler": "lexik_jwt_authentication.handler.authentication_success",
+                      "use_forward": false,
+                      "password_path": "password",
+                      "check_path": "auth_token"
+                    }
+                  ],
+                  "properties": {
+                    "username_path": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/json_login/properties/username_path",
+                      "type": "string",
+                      "examples": [
+                        "username"
+                      ]
+                    },
+                    "password_path": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/json_login/properties/password_path",
+                      "type": "string",
+                      "examples": [
+                        "password"
+                      ]
+                    },
+                    "check_path": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/json_login/properties/check_path",
+                      "type": "string",
+                      "examples": [
+                        "auth_token"
+                      ]
+                    },
+                    "success_handler": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/json_login/properties/success_handler",
+                      "type": "string",
+                      "examples": [
+                        "lexik_jwt_authentication.handler.authentication_success"
+                      ]
+                    },
+                    "failure_handler": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/json_login/properties/failure_handler",
+                      "type": "string",
+                      "examples": [
+                        "lexik_jwt_authentication.handler.authentication_failure"
+                      ]
+                    },
+                    "remember_me": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/json_login/properties/remember_me",
+                      "type": "boolean",
+                      "examples": [
+                        true
+                      ]
+                    },
+                    "use_forward": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/json_login/properties/use_forward",
+                      "type": "boolean",
+                      "examples": [
+                        false
+                      ]
+                    },
+                    "require_previous_session": {
+                      "$id": "#/properties/security/properties/firewalls/properties/main/properties/json_login/properties/require_previous_session",
+                      "type": "boolean",
+                      "examples": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                "methods": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/methods",
+                  "type": "object",
+                  "examples": [
+                    {}
+                  ]
+                },
+                "security": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/security",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "user_checker": {
+                  "$id": "#/properties/security/properties/firewalls/properties/main/properties/user_checker",
+                  "type": "string",
+                  "examples": [
+                    "security.user_checker"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "access_decision_manager": {
+          "$id": "#/properties/security/properties/access_decision_manager",
+          "type": "object",
+          "examples": [
+            {
+              "allow_if_all_abstain": false,
+              "strategy": "affirmative",
+              "allow_if_equal_granted_denied": true
+            }
+          ],
+          "properties": {
+            "strategy": {
+              "$id": "#/properties/security/properties/access_decision_manager/properties/strategy",
+              "type": "string",
+              "examples": [
+                "affirmative"
+              ]
+            },
+            "allow_if_all_abstain": {
+              "$id": "#/properties/security/properties/access_decision_manager/properties/allow_if_all_abstain",
+              "type": "boolean",
+              "examples": [
+                false
+              ]
+            },
+            "allow_if_equal_granted_denied": {
+              "$id": "#/properties/security/properties/access_decision_manager/properties/allow_if_equal_granted_denied",
+              "type": "boolean",
+              "examples": [
+                true
+              ]
+            }
+          }
+        },
+        "access_denied_url": {
+          "$id": "#/properties/security/properties/access_denied_url",
+          "examples": [
+            null
+          ]
+        },
+        "session_fixation_strategy": {
+          "$id": "#/properties/security/properties/session_fixation_strategy",
+          "type": "string",
+          "examples": [
+            "migrate"
+          ]
+        },
+        "hide_user_not_found": {
+          "$id": "#/properties/security/properties/hide_user_not_found",
+          "type": "boolean",
+          "examples": [
+            true
+          ]
+        },
+        "always_authenticate_before_granting": {
+          "$id": "#/properties/security/properties/always_authenticate_before_granting",
+          "type": "boolean",
+          "examples": [
+            false
+          ]
+        },
+        "erase_credentials": {
+          "$id": "#/properties/security/properties/erase_credentials",
+          "type": "boolean",
+          "examples": [
+            true
+          ]
+        },
+        "access_control": {
+          "$id": "#/properties/security/properties/access_control",
+          "type": "object",
+        },
+        "role_hierarchy": {
+          "$id": "#/properties/security/properties/role_hierarchy",
+          "type": "object",
+          "examples": [
+            {}
+          ]
+        }
+      }
+    }
+  }
+}
