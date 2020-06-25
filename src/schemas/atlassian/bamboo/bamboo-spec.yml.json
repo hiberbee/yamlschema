@@ -1,0 +1,872 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "default": {},
+  "required": [],
+  "additionalProperties": true,
+  "definitions": {
+    "stage": {
+      "type": "object",
+      "default": {},
+      "examples": [
+        {
+          "key": "BB",
+          "tasks": [
+            {
+              "script": {
+                "interpreter": "/bin/sh",
+                "scripts": [
+                  "echo 'echo success' > script.sh",
+                  "echo 'success' > output.log"
+                ]
+              }
+            },
+            {
+              "inject-variables": {
+                "file": "folder\\file.txt",
+                "scope": "RESULT",
+                "namespace": "myspace"
+              }
+            }
+          ],
+          "artifacts": [
+            {
+              "name": "Binaries",
+              "location": ".",
+              "pattern": "script.sh",
+              "required": true,
+              "shared": true
+            },
+            {
+              "name": "Logs",
+              "pattern": "**/*.log",
+              "required": false,
+              "shared": false
+            },
+            {
+              "name": "All",
+              "pattern": "**/*"
+            }
+          ],
+          "requirements": [
+            "hasDocker"
+          ],
+          "docker": {
+            "image": "ubuntu",
+            "use-default-volumes": true
+          },
+          "other": {
+            "clean-working-dir": true
+          }
+        }
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {
+        "key": {
+          "type": "string",
+          "default": "",
+          "examples": [
+            "BB"
+          ]
+        },
+        "tasks": {
+          "type": "array",
+          "default": [],
+          "examples": [
+            [
+              {
+                "script": {
+                  "interpreter": "/bin/sh",
+                  "scripts": [
+                    "echo 'echo success' > script.sh",
+                    "echo 'success' > output.log"
+                  ]
+                }
+              },
+              {
+                "inject-variables": {
+                  "file": "folder\\file.txt",
+                  "scope": "RESULT",
+                  "namespace": "myspace"
+                }
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "default": {},
+                "examples": [
+                  {
+                    "script": {
+                      "interpreter": "/bin/sh",
+                      "scripts": [
+                        "echo 'echo success' > script.sh",
+                        "echo 'success' > output.log"
+                      ]
+                    }
+                  }
+                ],
+                "required": [],
+                "additionalProperties": true,
+                "properties": {
+                  "script": {
+                    "type": "object",
+                    "default": {},
+                    "examples": [
+                      {
+                        "interpreter": "/bin/sh",
+                        "scripts": [
+                          "echo 'echo success' > script.sh",
+                          "echo 'success' > output.log"
+                        ]
+                      }
+                    ],
+                    "required": [],
+                    "additionalProperties": true,
+                    "properties": {
+                      "interpreter": {
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "/bin/sh"
+                        ]
+                      },
+                      "scripts": {
+                        "type": "array",
+                        "default": [],
+                        "examples": [
+                          [
+                            "echo 'echo success' > script.sh",
+                            "echo 'success' > output.log"
+                          ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "default": "",
+                              "examples": [
+                                "echo 'echo success' > script.sh",
+                                "echo 'success' > output.log"
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "default": {},
+                "examples": [
+                  {
+                    "inject-variables": {
+                      "file": "folder\\file.txt",
+                      "scope": "RESULT",
+                      "namespace": "myspace"
+                    }
+                  }
+                ],
+                "required": [],
+                "additionalProperties": true,
+                "properties": {
+                  "inject-variables": {
+                    "type": "object",
+                    "default": {},
+                    "examples": [
+                      {
+                        "file": "folder\\file.txt",
+                        "scope": "RESULT",
+                        "namespace": "myspace"
+                      }
+                    ],
+                    "required": [],
+                    "additionalProperties": true,
+                    "properties": {
+                      "file": {
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "folder\\file.txt"
+                        ]
+                      },
+                      "scope": {
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "RESULT"
+                        ]
+                      },
+                      "namespace": {
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "myspace"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "artifacts": {
+          "type": "array",
+          "default": [],
+          "additionalItems": true,
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "Binaries"
+                    ]
+                  },
+                  "location": {
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "."
+                    ]
+                  },
+                  "pattern": {
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "script.sh"
+                    ]
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "default": false,
+                    "examples": [
+                      true
+                    ]
+                  },
+                  "shared": {
+                    "type": "boolean",
+                    "default": false,
+                    "examples": [
+                      true
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "All"
+                    ]
+                  },
+                  "pattern": {
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "**/*"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "requirements": {
+          "type": "array",
+          "default": [],
+          "additionalItems": true,
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "hasDocker"
+                ]
+              }
+            ]
+          }
+        },
+        "docker": {
+          "type": "object",
+          "default": {},
+          "examples": [
+            {
+              "image": "ubuntu",
+              "use-default-volumes": true
+            }
+          ],
+          "required": [],
+          "additionalProperties": true,
+          "properties": {
+            "image": {
+              "type": "string",
+              "default": "",
+              "examples": [
+                "ubuntu"
+              ]
+            },
+            "use-default-volumes": {
+              "type": "boolean",
+              "default": false,
+              "examples": [
+                true
+              ]
+            }
+          }
+        },
+        "other": {
+          "type": "object",
+          "default": {},
+          "examples": [
+            {
+              "clean-working-dir": true
+            }
+          ],
+          "required": [],
+          "additionalProperties": true,
+          "properties": {
+            "clean-working-dir": {
+              "type": "boolean",
+              "default": false,
+              "examples": [
+                true
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "version": {
+      "type": "number",
+      "default": 0,
+      "examples": [
+        2
+      ]
+    },
+    "plan": {
+      "type": "object",
+      "default": {},
+      "examples": [
+        {
+          "project-key": "PROJ",
+          "key": "PLAN",
+          "name": "My Plan"
+        }
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {
+        "project-key": {
+          "type": "string",
+          "default": "",
+          "examples": [
+            "PROJ"
+          ]
+        },
+        "key": {
+          "type": "string",
+          "default": "",
+          "examples": [
+            "PLAN"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "default": "",
+          "examples": [
+            "My Plan"
+          ]
+        }
+      }
+    },
+    "docker": {
+      "type": "object",
+      "default": {},
+      "examples": [
+        {
+          "image": "oracle",
+          "volumes": {
+            "/home/user": "/home/user",
+            "/opt": "/opt"
+          },
+          "use-default-volumes": false
+        }
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {
+        "image": {
+          "type": "string",
+          "default": "",
+          "examples": [
+            "oracle"
+          ]
+        },
+        "volumes": {
+          "type": "object",
+          "default": {},
+          "examples": [
+            {
+              "/home/user": "/home/user",
+              "/opt": "/opt"
+            }
+          ],
+          "required": [],
+          "additionalProperties": true,
+          "properties": {
+            "/home/user": {
+              "type": "string",
+              "default": "",
+              "examples": [
+                "/home/user"
+              ]
+            },
+            "/opt": {
+              "type": "string",
+              "default": "",
+              "examples": [
+                "/opt"
+              ]
+            }
+          }
+        },
+        "use-default-volumes": {
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            false
+          ]
+        }
+      }
+    },
+    "triggers": {
+      "type": "array",
+      "default": [],
+      "examples": [
+        [
+          {
+            "polling": 130
+          },
+          {
+            "polling": {
+              "period": 150
+            }
+          }
+        ]
+      ],
+      "additionalItems": true,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "default": {},
+            "examples": [
+              {
+                "polling": 130
+              }
+            ],
+            "required": [],
+            "additionalProperties": true,
+            "properties": {
+              "polling": {
+                "type": "number",
+                "default": 0,
+                "examples": [
+                  130
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "default": {},
+            "examples": [
+              {
+                "cron": "0 * * * ? *"
+              }
+            ],
+            "required": [],
+            "additionalProperties": true,
+            "properties": {
+              "cron": {
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "0 * * * ? *"
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "default": {},
+            "examples": [
+              {
+                "remote": "192.168.0.1"
+              }
+            ],
+            "required": [],
+            "additionalProperties": true,
+            "properties": {
+              "remote": {
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "192.168.0.1"
+                ]
+              }
+            }
+          },
+          {
+            "type": "string",
+            "default": "",
+            "examples": [
+              "remote"
+            ]
+          }
+        ]
+      }
+    },
+    "notifications": {
+      "type": "array",
+      "default": [],
+      "examples": [
+        [
+          {
+            "recipients": [
+              {
+                "users": [
+                  "admin"
+                ]
+              },
+              {
+                "emails": [
+                  "admin@example.com"
+                ]
+              }
+            ],
+            "events": [
+              "plan-failed",
+              "job-error"
+            ]
+          },
+          {
+            "recipients": [
+              "responsible",
+              "watchers"
+            ],
+            "events": [
+              {
+                "plan-failed": 3
+              },
+              {
+                "job-error": {
+                  "first-only": false
+                }
+              }
+            ]
+          }
+        ]
+      ],
+      "additionalItems": true,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "default": {},
+            "examples": [
+              {
+                "recipients": [
+                  {
+                    "users": [
+                      "admin"
+                    ]
+                  },
+                  {
+                    "emails": [
+                      "admin@example.com"
+                    ]
+                  }
+                ],
+                "events": [
+                  "plan-failed",
+                  "job-error"
+                ]
+              }
+            ],
+            "required": [],
+            "additionalProperties": true,
+            "properties": {
+              "recipients": {
+                "type": "array",
+                "default": [],
+                "examples": [
+                  [
+                    {
+                      "users": [
+                        "admin"
+                      ]
+                    },
+                    {
+                      "emails": [
+                        "admin@example.com"
+                      ]
+                    }
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "default": {},
+                      "examples": [
+                        {
+                          "users": [
+                            "admin"
+                          ]
+                        }
+                      ],
+                      "required": [],
+                      "additionalProperties": true,
+                      "properties": {
+                        "users": {
+                          "type": "array",
+                          "default": [],
+                          "examples": [
+                            [
+                              "admin"
+                            ]
+                          ],
+                          "additionalItems": true,
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                  "admin"
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "default": {},
+                      "examples": [
+                        {
+                          "emails": [
+                            "admin@example.com"
+                          ]
+                        }
+                      ],
+                      "required": [],
+                      "additionalProperties": true,
+                      "properties": {
+                        "emails": {
+                          "type": "array",
+                          "default": [],
+                          "examples": [
+                            [
+                              "admin@example.com"
+                            ]
+                          ],
+                          "additionalItems": true,
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                  "admin@example.com"
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "events": {
+                "type": "array",
+                "default": [],
+                "examples": [
+                  [
+                    "plan-failed",
+                    "job-error"
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "plan-failed",
+                        "job-error"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "variables": {
+      "type": "object",
+      "default": {},
+      "examples": [
+        {
+          "password": "admin",
+          "username": "admin"
+        }
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {
+        "password": {
+          "type": "string",
+          "default": "",
+          "examples": [
+            "admin"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "default": "",
+          "examples": [
+            "admin"
+          ]
+        }
+      }
+    },
+    "branches": {
+      "type": "object",
+      "default": {},
+      "examples": [
+        {
+          "create": "for-pull-request",
+          "delete": {
+            "after-deleted-days": 40,
+            "after-inactive-days": 10
+          },
+          "integration": {
+            "merge-from": "master",
+            "push-on-success": true
+          },
+          "link-to-jira": false
+        }
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {
+        "create": {
+          "type": "string",
+          "default": "",
+          "examples": [
+            "for-pull-request"
+          ]
+        },
+        "delete": {
+          "type": "object",
+          "default": {},
+          "examples": [
+            {
+              "after-deleted-days": 40,
+              "after-inactive-days": 10
+            }
+          ],
+          "required": [],
+          "additionalProperties": true,
+          "properties": {
+            "after-deleted-days": {
+              "type": "number",
+              "default": 0,
+              "examples": [
+                40
+              ]
+            },
+            "after-inactive-days": {
+              "type": "number",
+              "default": 0,
+              "examples": [
+                10
+              ]
+            }
+          }
+        },
+        "integration": {
+          "type": "object",
+          "default": {},
+          "examples": [
+            {
+              "merge-from": "master",
+              "push-on-success": true
+            }
+          ],
+          "required": [],
+          "additionalProperties": true,
+          "properties": {
+            "merge-from": {
+              "type": "string",
+              "default": "",
+              "examples": [
+                "master"
+              ]
+            },
+            "push-on-success": {
+              "type": "boolean",
+              "default": false,
+              "examples": [
+                true
+              ]
+            }
+          }
+        },
+        "link-to-jira": {
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            false
+          ]
+        }
+      }
+    },
+    "stages": {
+      "type": "array",
+      "default": [],
+      "additionalItems": true,
+      "items": {
+        "$ref": "#/definitions/stage"
+      }
+    }
+  }
+}
